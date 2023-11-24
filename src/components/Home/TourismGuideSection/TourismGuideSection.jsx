@@ -11,7 +11,7 @@ import GuideProfileCard from '../../Shared/GuideProfileCard';
 const TourismGuideSection = () => {
   const { packages } = usePackages();
   const { tourGuides } = useTourGuides();
-  console.log(packages, tourGuides);
+  // console.log(packages, tourGuides);
   return (
     <div className="my-14">
       <Container>

@@ -4,7 +4,7 @@ import './CategoriesSection.css';
 import CategoryCard from './CategoryCard';
 
 const CategoriesSection = () => {
-  console.log(categories);
+  //   console.log(categories);
   return (
     <div className="my-14">
       <Container>
