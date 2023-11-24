@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import Container from '../../Container';
 import usePackages from '../../../hooks/usePackages';
 import './TourismGuideSection.css';
+import PackagesCard from '../../Shared/PackagesCard';
 
 const TourismGuideSection = () => {
   const { packages } = usePackages();
@@ -63,7 +64,15 @@ const TourismGuideSection = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <div className="video-tab bg-fixed py-6 mt-2">
+            <Container>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {packages?.map(item => (
+                  <PackagesCard key={item.id} item={item}></PackagesCard>
+                ))}
+              </div>
+            </Container>
+          </div>
         </TabPanel>
         <TabPanel>
           <h2>Any content 3</h2>
