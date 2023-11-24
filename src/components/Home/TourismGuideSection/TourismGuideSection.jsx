@@ -4,6 +4,7 @@ import Container from '../../Container';
 import usePackages from '../../../hooks/usePackages';
 import './TourismGuideSection.css';
 import PackagesCard from '../../Shared/PackagesCard';
+import { Link } from 'react-router-dom';
 
 const TourismGuideSection = () => {
   const { packages } = usePackages();
@@ -11,7 +12,7 @@ const TourismGuideSection = () => {
   return (
     <div className="my-14">
       <Container>
-        <h2 className="text-4xl font-semibold mb-10 text-error text-center">
+        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
           {' '}
           Tourism and Travel Guide{' '}
         </h2>
@@ -66,10 +67,17 @@ const TourismGuideSection = () => {
         <TabPanel>
           <div className="video-tab bg-fixed py-6 mt-2">
             <Container>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {packages?.map(item => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {packages?.slice(0, 3).map(item => (
                   <PackagesCard key={item.id} item={item}></PackagesCard>
                 ))}
+              </div>
+              <div className="flex justify-center mt-8">
+                <Link to="/allPackages">
+                  <button className="btn btn-wide btn-secondary">
+                    Show All
+                  </button>
+                </Link>
               </div>
             </Container>
           </div>
