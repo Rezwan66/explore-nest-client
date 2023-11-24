@@ -17,7 +17,7 @@ const TourismGuideSection = () => {
       <Container>
         <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
           {' '}
-          Tourism and Travel Guide{' '}
+          Follow our Tour Guide{' '}
         </h2>
       </Container>
       <Tabs>
@@ -86,7 +86,7 @@ const TourismGuideSection = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="video-tab bg-fixed py-10 mt-2">
+          <div className="video-tab bg-fixed py-20 mt-2">
             <Container>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {tourGuides?.map(guide => (
