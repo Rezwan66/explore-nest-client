@@ -1,8 +1,12 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Container from '../../Container';
+import usePackages from '../../../hooks/usePackages';
+import './TourismGuideSection.css';
 
 const TourismGuideSection = () => {
+  const { packages } = usePackages();
+  console.log(packages);
   return (
     <div className="my-14">
       <Container>
@@ -29,14 +33,14 @@ const TourismGuideSection = () => {
                   src="https://www.youtube.com/embed/JLjvEYMBGzQ?si=AsnEaHAWu-gV1DZU"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
                 <iframe
                   className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
                   src="https://www.youtube.com/embed/4FrPZoofdBQ?si=VSCNUy0g-jT14BZO"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
               <div className="flex justify-center items-center gap-6 flex-col md:flex-row">
@@ -45,14 +49,14 @@ const TourismGuideSection = () => {
                   src="https://www.youtube.com/embed/sFoJBWkDnO8?si=jkJMgD9tPvP2CiXW"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
                 <iframe
                   className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
                   src="https://www.youtube.com/embed/V2jk8PclZwg?si=KOo178_icHMcDaAl"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
             </Container>

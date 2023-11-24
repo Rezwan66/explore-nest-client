@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "photo": "url_to_attractive_spot_image_1.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "Adventure",
+    "tripTitle": "Majestic Mountain Trek",
+    "price": "$899",
+    "detailsPageUrl": "/packages/majestic-mountain-trek"
+  },
+  {
+    "id": 2,
+    "photo": "url_to_attractive_spot_image_2.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "Cultural",
+    "tripTitle": "Historical Heritage Tour",
+    "price": "$749",
+    "detailsPageUrl": "/packages/historical-heritage-tour"
+  },
+  {
+    "id": 3,
+    "photo": "url_to_attractive_spot_image_3.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "Beach",
+    "tripTitle": "Sunset Paradise Getaway",
+    "price": "$1299",
+    "detailsPageUrl": "/packages/sunset-paradise-getaway"
+  },
+  {
+    "id": 4,
+    "photo": "url_to_attractive_spot_image_4.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "Wildlife",
+    "tripTitle": "Safari Adventure Expedition",
+    "price": "$1099",
+    "detailsPageUrl": "/packages/safari-adventure-expedition"
+  },
+  {
+    "id": 5,
+    "photo": "url_to_attractive_spot_image_5.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "City",
+    "tripTitle": "Urban Exploration Experience",
+    "price": "$599",
+    "detailsPageUrl": "/packages/urban-exploration-experience"
+  },
+  {
+    "id": 6,
+    "photo": "url_to_attractive_spot_image_6.jpg",
+    "heartIcon": "url_to_heart_icon.svg",
+    "tourType": "Mountain",
+    "tripTitle": "Peak Summit Adventure",
+    "price": "$1299",
+    "detailsPageUrl": "/packages/peak-summit-adventure"
+  }
+]
