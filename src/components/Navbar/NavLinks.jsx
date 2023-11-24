@@ -4,22 +4,34 @@ const NavLinks = () => {
   return (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="hover:text-error" to="/">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="/community">Community</Link>
+        <Link className="hover:text-error" to="/community">
+          Community
+        </Link>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
+        <Link className="hover:text-error" to="/blogs">
+          Blogs
+        </Link>
       </li>
       <li>
-        <Link to="/aboutUs">About Us</Link>
+        <Link className="hover:text-error" to="/aboutUs">
+          About Us
+        </Link>
       </li>
       <li>
-        <Link to="/contactUs">Contact Us</Link>
+        <Link className="hover:text-error" to="/contactUs">
+          Contact Us
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login/Register</Link>
+        <Link className="hover:text-error" to="/login">
+          Login/Register
+        </Link>
       </li>
     </>
   );
