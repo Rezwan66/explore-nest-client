@@ -1,13 +1,11 @@
 import Container from '../../components/Container';
+import Banner from '../../components/Home/Banner';
 
 const Home = () => {
   return (
-    <Container>
-      <div>
-        <h2> HELLO I Am Home </h2>
-        <button className="btn btn-secondary">This is home</button>
-      </div>
-    </Container>
+    <div>
+      <Banner></Banner>
+    </div>
   );
 };
 export default Home;
