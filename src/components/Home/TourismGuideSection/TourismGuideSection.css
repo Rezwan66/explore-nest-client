@@ -1,0 +1,15 @@
+/* .react-tabs__tab {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid transparent;
+}
+
+.react-tabs__tab--selected {
+  border-color: red;
+} */
+
+.video-tab {
+  background-image: url('../../../assets/banner/tourism.jpg');
+  background-size: cover;
+}
