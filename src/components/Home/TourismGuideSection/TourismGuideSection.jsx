@@ -5,10 +5,13 @@ import usePackages from '../../../hooks/usePackages';
 import './TourismGuideSection.css';
 import PackagesCard from '../../Shared/PackagesCard';
 import { Link } from 'react-router-dom';
+import useTourGuides from '../../../hooks/useTourGuides';
+import GuideProfileCard from '../../Shared/GuideProfileCard';
 
 const TourismGuideSection = () => {
   const { packages } = usePackages();
-  console.log(packages);
+  const { tourGuides } = useTourGuides();
+  console.log(packages, tourGuides);
   return (
     <div className="my-14">
       <Container>
@@ -83,7 +86,18 @@ const TourismGuideSection = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+          <div className="video-tab bg-fixed py-10 mt-2">
+            <Container>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                {tourGuides?.map(guide => (
+                  <GuideProfileCard
+                    key={guide.id}
+                    guide={guide}
+                  ></GuideProfileCard>
+                ))}
+              </div>
+            </Container>
+          </div>
         </TabPanel>
       </Tabs>
     </div>

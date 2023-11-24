@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Jessica Rodriguez",
+    "photo": "jessica.jpg",
+    "biography": "Experienced tour guide with a passion for history and adventure. Fluent in English and Spanish.",
+    "detailsPageUrl": "/tour-guide/jessica-rodriguez"
+  },
+  {
+    "id": 2,
+    "name": "Alexandre Dubois",
+    "photo": "alexandre.jpg",
+    "biography": "French-speaking guide specializing in cultural tours. Loves sharing hidden gems with travelers.",
+    "detailsPageUrl": "/tour-guide/alexandre-dubois"
+  },
+  {
+    "id": 3,
+    "name": "Maria Sanchez",
+    "photo": "maria.jpg",
+    "biography": "Passionate about nature and wildlife. Offers eco-friendly tours focused on sustainable travel.",
+    "detailsPageUrl": "/tour-guide/maria-sanchez"
+  },
+  {
+    "id": 4,
+    "name": "Raj Patel",
+    "photo": "raj.jpg",
+    "biography": "Enthusiastic guide with a love for adventure sports. Specializes in mountain and trekking tours.",
+    "detailsPageUrl": "/tour-guide/raj-patel"
+  },
+  {
+    "id": 5,
+    "name": "Aisha Nkosi",
+    "photo": "aisha.jpg",
+    "biography": "Multilingual guide with a focus on cultural diversity. Offers immersive experiences in local communities.",
+    "detailsPageUrl": "/tour-guide/aisha-nkosi"
+  },
+  {
+    "id": 6,
+    "name": "Mikhail Ivanov",
+    "photo": "mikhail.jpg",
+    "biography": "Russian-speaking guide with a deep knowledge of historical landmarks. Provides insightful city tours.",
+    "detailsPageUrl": "/tour-guide/mikhail-ivanov"
+  }
+]
