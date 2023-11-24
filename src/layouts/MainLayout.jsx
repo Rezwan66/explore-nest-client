@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 // import bg from '../assets/background/rose-petals (1).png';
 
 const MainLayout = () => {
@@ -16,6 +17,7 @@ const MainLayout = () => {
     >
       <Navbar></Navbar>
       <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };

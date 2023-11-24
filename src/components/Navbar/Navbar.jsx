@@ -6,7 +6,7 @@ import Dropdown from './Dropdown';
 
 const Navbar = () => {
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-100 py-2">
       <Container>
         <div className="navbar bg-base-100 px-0">
           <div className="navbar-start">
