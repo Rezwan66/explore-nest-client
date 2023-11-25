@@ -7,6 +7,7 @@ import PackageCategory from '../pages/AllPackages/PackageCategory';
 import PackageDetails from '../pages/AllPackages/PackageDetails';
 import GuideProfile from '../pages/TourGuides/GuideProfile';
 import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 
 const Router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
   {
     path: '/login',
     element: <Login></Login>,
+  },
+  {
+    path: '/register',
+    element: <Register></Register>,
   },
 ]);
 
