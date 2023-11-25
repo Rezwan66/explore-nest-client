@@ -72,7 +72,7 @@ const TourismGuideSection = () => {
             <Container>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {packages?.slice(0, 3).map(item => (
-                  <PackagesCard key={item.id} item={item}></PackagesCard>
+                  <PackagesCard key={item._id} item={item}></PackagesCard>
                 ))}
               </div>
               <div className="flex justify-center mt-8">
@@ -91,7 +91,7 @@ const TourismGuideSection = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {tourGuides?.map(guide => (
                   <GuideProfileCard
-                    key={guide.id}
+                    key={guide._id}
                     guide={guide}
                   ></GuideProfileCard>
                 ))}

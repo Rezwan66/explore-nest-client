@@ -10,7 +10,7 @@ const usePackages = () => {
   } = useQuery({
     queryKey: ['packages'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/packages.json');
+      const res = await axiosPublic.get('/allPackages');
       return res.data;
     },
   });

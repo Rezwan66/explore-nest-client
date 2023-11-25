@@ -23,7 +23,7 @@ const Dropdown = () => {
       </div>
 
       {isOpen && (
-        <div className="bg-base-100 absolute rounded-md shadow-xl w-[40vw] md:w-[20vw] lg:w-[10vw] overflow-hidden right-0 top-14 text-sm">
+        <div className="bg-base-100 absolute rounded-md shadow-xl w-[40vw] md:w-[20vw] lg:w-[10vw] overflow-hidden right-0 top-14 text-sm z-50">
           <div className="flex flex-col cursor-pointer">
             <Link
               to="/dashboard"

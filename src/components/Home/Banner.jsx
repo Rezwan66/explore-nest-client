@@ -10,6 +10,7 @@ import b4 from '../../assets/banner/banner4.jpg';
 import b5 from '../../assets/banner/banner5.jpg';
 import b6 from '../../assets/banner/banner6.jpg';
 import { Typewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -88,6 +89,15 @@ const Banner = () => {
             deleteSpeed={50}
             delaySpeed={1000}
           ></Typewriter>
+        </span>
+        <br />
+        <br />
+        <span>
+          <Link to="/allPackages">
+            <button className="btn btn-block btn-secondary uppercase md:mt-40 mt-6">
+              Book Today
+            </button>
+          </Link>
         </span>
       </h2>
     </div>
