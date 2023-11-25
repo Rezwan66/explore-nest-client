@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home/Home';
 import ErrorPage from '../pages/ErrorPage';
 import AllPackages from '../pages/AllPackages/AllPackages';
+import PackageCategory from '../pages/AllPackages/PackageCategory';
 
 const Router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const Router = createBrowserRouter([
       {
         path: '/allPackages',
         element: <AllPackages></AllPackages>,
+      },
+      {
+        path: '/allPackages/:category',
+        element: <PackageCategory></PackageCategory>,
       },
     ],
   },
