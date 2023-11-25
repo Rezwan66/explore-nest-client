@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const TouristStorySection = () => {
   const { stories } = useTouristStories();
-  console.log(stories);
+  // console.log(stories);
   return (
     <div className="my-14">
       <Container>

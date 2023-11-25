@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home';
 import ErrorPage from '../pages/ErrorPage';
 import AllPackages from '../pages/AllPackages/AllPackages';
 import PackageCategory from '../pages/AllPackages/PackageCategory';
+import PackageDetails from '../pages/AllPackages/PackageDetails';
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +23,12 @@ const Router = createBrowserRouter([
       {
         path: '/allPackages/:category',
         element: <PackageCategory></PackageCategory>,
+      },
+      {
+        path: '/package/:id',
+        element: <PackageDetails></PackageDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allPackages/${params.id}`),
       },
     ],
   },
