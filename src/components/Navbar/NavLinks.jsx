@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const NavLinks = () => {
+  const { user } = useAuth();
   return (
     <>
       <li>
@@ -28,11 +30,13 @@ const NavLinks = () => {
           Contact Us
         </Link>
       </li>
-      <li>
-        <Link className="hover:text-error" to="/login">
-          Login/Register
-        </Link>
-      </li>
+      {!user && (
+        <li>
+          <Link className="hover:text-error" to="/login">
+            Login/Register
+          </Link>
+        </li>
+      )}
     </>
   );
 };

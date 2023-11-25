@@ -6,6 +6,7 @@ import AllPackages from '../pages/AllPackages/AllPackages';
 import PackageCategory from '../pages/AllPackages/PackageCategory';
 import PackageDetails from '../pages/AllPackages/PackageDetails';
 import GuideProfile from '../pages/TourGuides/GuideProfile';
+import Login from '../pages/Login/Login';
 
 const Router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
           fetch(`http://localhost:5000/guides/${params.id}`),
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login></Login>,
   },
 ]);
 

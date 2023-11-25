@@ -18,9 +18,14 @@ const PackageDetails = () => {
     <div>
       <div className="my-14">
         <Container>
-          <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
-            {tripTitle}
-          </h2>
+          <div className="flex flex-col items-center gap-4 justify-center">
+            <h2 className="md:text-4xl text-2xl font-semibold text-error text-center">
+              {tripTitle}
+            </h2>
+            <div className="z-50 whitespace-normal break-words rounded-lg bg-pink-500 py-1 px-3 font-sans text-xs font-medium text-white focus:outline-none w-fit cursor-pointer mb-8">
+              <span className="uppercase tracking-widest">{tourType}</span>
+            </div>
+          </div>
           {/* gallery section */}
           <div className="grid gap-4">
             <div>
@@ -72,6 +77,8 @@ const PackageDetails = () => {
             </div>
           </Container>
         </div>
+        {/* booking form */}
+        <div className="my-10">{/* TODO: booking form */}</div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ const GuideProfile = () => {
   return (
     <div>
       <h2> HELLO I Am GuideProfile </h2>
+      {/* TODO guide profile */}
     </div>
   );
 };
