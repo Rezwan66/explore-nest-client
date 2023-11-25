@@ -10,7 +10,7 @@ const useTouristStories = () => {
   } = useQuery({
     queryKey: ['stories'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/touristStories.json');
+      const res = await axiosPublic.get('/stories');
       return res.data;
     },
   });

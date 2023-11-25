@@ -10,7 +10,7 @@ const useTourGuides = () => {
   } = useQuery({
     queryKey: ['tourGuides'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/tourGuides.json');
+      const res = await axiosPublic.get('/guides');
       return res.data;
     },
   });

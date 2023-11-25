@@ -1,44 +1,64 @@
 [
   {
-    "id": 1,
     "name": "Jessica Rodriguez",
-    "photo": "jessica.jpg",
-    "biography": "Experienced tour guide with a passion for history and adventure. Fluent in English and Spanish.",
-    "detailsPageUrl": "/tour-guide/jessica-rodriguez"
+    "photo": "https://i.ibb.co/fvhbSTt/1.jpg",
+    "bio": "Passionate about outdoor adventures and cultural exploration.",
+    "contact": "jessica@gamil.com",
+    "education": "Bachelor's Degree in Tourism Management",
+    "skills": ["Multilingual", "Outdoor Leadership", "Cultural Awareness"],
+    "experience": "Senior Tour Guide at Adventure Explorers (2018 - Present)"
   },
   {
-    "id": 2,
     "name": "Alexandre Dubois",
-    "photo": "alexandre.jpg",
-    "biography": "French-speaking guide specializing in cultural tours. Loves sharing hidden gems with travelers.",
-    "detailsPageUrl": "/tour-guide/alexandre-dubois"
+    "photo": "https://i.ibb.co/TRvnJG2/2.jpg",
+    "bio": "Dedicated to preserving and sharing cultural heritage.",
+    "contact": "alexandre@gamil.com",
+    "education": "Master's Degree in Cultural Heritage",
+    "skills": ["Historical Knowledge", "Languages", "Customer Service"],
+    "experience": "Cultural Heritage Specialist at Heritage Explorations (2017 - Present)"
   },
   {
-    "id": 3,
-    "name": "Maria Sanchez",
-    "photo": "maria.jpg",
-    "biography": "Passionate about nature and wildlife. Offers eco-friendly tours focused on sustainable travel.",
-    "detailsPageUrl": "/tour-guide/maria-sanchez"
+    "name": "Emily Johnson",
+    "photo": "https://i.ibb.co/Hnvzbvv/3.jpg",
+    "bio": "Enthusiastic guide with a love for nature and wildlife.",
+    "contact": "emily@gamil.com",
+    "education": "Bachelor's Degree in Ecology",
+    "skills": [
+      "Wildlife Observation",
+      "Environmental Conservation",
+      "Communication"
+    ],
+    "experience": "Wildlife Tour Leader at Nature Discovery Tours (2016 - Present)"
   },
   {
-    "id": 4,
-    "name": "Raj Patel",
-    "photo": "raj.jpg",
-    "biography": "Enthusiastic guide with a love for adventure sports. Specializes in mountain and trekking tours.",
-    "detailsPageUrl": "/tour-guide/raj-patel"
+    "name": "Rajesh Patel",
+    "photo": "https://i.ibb.co/rtFS5Qx/4.jpg",
+    "bio": "Bringing history to life through engaging storytelling.",
+    "contact": "rajesh@gamil.com",
+    "education": "Ph.D. in History",
+    "skills": ["Historical Interpretation", "Research", "Public Speaking"],
+    "experience": "Lead Historian at Time Travel Tours (2015 - Present)"
   },
   {
-    "id": 5,
-    "name": "Aisha Nkosi",
-    "photo": "aisha.jpg",
-    "biography": "Multilingual guide with a focus on cultural diversity. Offers immersive experiences in local communities.",
-    "detailsPageUrl": "/tour-guide/aisha-nkosi"
+    "name": "Sophie Martin",
+    "photo": "https://i.ibb.co/Khbz9fN/5.jpg",
+    "bio": "Adventurous spirit with a passion for exploring diverse cultures.",
+    "contact": "sophie@gamil.com",
+    "education": "Bachelor's Degree in Anthropology",
+    "skills": [
+      "Cross-Cultural Communication",
+      "Photography",
+      "Travel Planning"
+    ],
+    "experience": "Cultural Exchange Coordinator at Global Journeys (2018 - Present)"
   },
   {
-    "id": 6,
-    "name": "Mikhail Ivanov",
-    "photo": "mikhail.jpg",
-    "biography": "Russian-speaking guide with a deep knowledge of historical landmarks. Provides insightful city tours.",
-    "detailsPageUrl": "/tour-guide/mikhail-ivanov"
+    "name": "Gia Paige",
+    "photo": "https://i.ibb.co/qjbhxdZ/6.jpg",
+    "bio": "Experienced guide with a love for natural wonders and landscapes.",
+    "contact": "paige@gamil.com",
+    "education": "Outdoor Leadership Certification",
+    "skills": ["Hiking", "Geological Knowledge", "Map Reading"],
+    "experience": "Lead Guide at Nature's Wonders Expeditions (2014 - Present)"
   }
 ]
