@@ -5,6 +5,7 @@ import ErrorPage from '../pages/ErrorPage';
 import AllPackages from '../pages/AllPackages/AllPackages';
 import PackageCategory from '../pages/AllPackages/PackageCategory';
 import PackageDetails from '../pages/AllPackages/PackageDetails';
+import GuideProfile from '../pages/TourGuides/GuideProfile';
 
 const Router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const Router = createBrowserRouter([
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allPackages/${params.id}`),
+      },
+      {
+        path: '/tourGuides/:id',
+        element: <GuideProfile></GuideProfile>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/guides/${params.id}`),
       },
     ],
   },

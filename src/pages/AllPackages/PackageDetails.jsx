@@ -2,9 +2,13 @@ import { useLoaderData } from 'react-router-dom';
 import Container from '../../components/Container';
 import { FaQuoteLeft } from 'react-icons/fa';
 import CustomizedAccordions from '../../components/AllPackages/CustomizedAccordions';
+import useTourGuides from '../../hooks/useTourGuides';
+import GuideProfileCard from '../../components/Shared/GuideProfileCard';
+import './PackageDetails.css';
 
 const PackageDetails = () => {
   const loadedPackage = useLoaderData();
+  const { tourGuides } = useTourGuides();
   //   console.log(Object.keys(loadedPackage).join(','));
 
   const { _id, photo, tourType, tripTitle, price, gallery, about, tourPlan } =
@@ -46,12 +50,28 @@ const PackageDetails = () => {
           {/* tour plan */}
           <div className="my-10">
             {/* mui accordion */}
-            <h2 className="md:text-2xl text-base font-semibold underline mb-6">
-              Tour Itinerary
+            <h2 className="md:text-2xl text-base text-[#f50057] tracking-widest font-bold mb-6">
+              Trip Itinerary:
             </h2>
             <CustomizedAccordions tourPlan={tourPlan}></CustomizedAccordions>
           </div>
         </Container>
+        {/* tour guides */}
+        <div className="guide-bg bg-fixed my-10 py-20">
+          <Container>
+            <h2 className="md:text-3xl text-base text-white italic text-center tracking-widest font-bold mb-6">
+              Our Guides:
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {tourGuides?.map(guide => (
+                <GuideProfileCard
+                  key={guide._id}
+                  guide={guide}
+                ></GuideProfileCard>
+              ))}
+            </div>
+          </Container>
+        </div>
       </div>
     </div>
   );

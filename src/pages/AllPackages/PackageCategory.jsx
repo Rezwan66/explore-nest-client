@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Container from '../../components/Container';
 import PackagesCard from '../../components/Shared/PackagesCard';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
@@ -42,14 +42,21 @@ const PackageCategory = () => {
               ))}
             </div>
           ) : (
-            <div className="mt-24 mb-96">
-              <h2 className="text-primary italic text-center mb-6">
+            <div className="mt-24 ">
+              <h2 className="text-[#f50057] italic text-center mb-6">
                 Sorry, no &apos;{category}&apos; package available at the
                 moment. Please try again later.
               </h2>
               <NoDataAnimation></NoDataAnimation>
             </div>
           )}
+          <div className="flex justify-center mt-12 mb-60">
+            <Link to="/allPackages">
+              <button className="btn btn-wide btn-secondary">
+                Show All Packages
+              </button>
+            </Link>
+          </div>
         </Container>
       </div>
     </div>
