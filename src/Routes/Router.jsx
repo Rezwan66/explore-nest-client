@@ -11,6 +11,7 @@ import Register from '../pages/Register/Register';
 import Community from '../pages/Community/Community';
 import PrivateRoute from './PrivateRoute';
 import AllStories from '../pages/Stories/AllStories';
+import StoryDetails from '../pages/Stories/StoryDetails';
 
 const Router = createBrowserRouter([
   {
@@ -53,6 +54,12 @@ const Router = createBrowserRouter([
       {
         path: '/stories',
         element: <AllStories></AllStories>,
+      },
+      {
+        path: '/stories/:id',
+        element: <StoryDetails></StoryDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/stories/${params.id}`),
       },
     ],
   },
