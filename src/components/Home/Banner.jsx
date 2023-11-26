@@ -78,7 +78,7 @@ const Banner = () => {
         </span>
         <br />
         <br />
-        <span className="text-lg font-medium">
+        <span className="text-lg font-medium text-white">
           Your Gateway{' '}
           <Typewriter
             words={['to Limitless Adventures!']}

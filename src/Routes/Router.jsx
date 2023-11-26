@@ -10,6 +10,7 @@ import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Community from '../pages/Community/Community';
 import PrivateRoute from './PrivateRoute';
+import AllStories from '../pages/Stories/AllStories';
 
 const Router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
         element: <GuideProfile></GuideProfile>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/guides/${params.id}`),
+      },
+      {
+        path: '/stories',
+        element: <AllStories></AllStories>,
       },
     ],
   },

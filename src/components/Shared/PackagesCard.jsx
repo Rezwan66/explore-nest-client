@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 
 const PackagesCard = ({ item }) => {
   // console.log(Object.keys(item).join(','));
+
   const [clicked, setClicked] = useState(false);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -36,6 +37,9 @@ const PackagesCard = ({ item }) => {
         console.log(res.data);
         if (res?.data?.insertedId) {
           toast.success('Package Added to Wishlist!');
+          setClicked(!clicked);
+        } else {
+          toast.error(res?.data?.message);
           setClicked(!clicked);
         }
       })
