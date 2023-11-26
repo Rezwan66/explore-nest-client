@@ -1,13 +1,45 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 const PackagesCard = ({ item }) => {
-  //   console.log(Object.keys(item).join(','));
+  // console.log(Object.keys(item).join(','));
   const [clicked, setClicked] = useState(false);
-
-  const { _id, photo, tourType, tripTitle, price } = item || {};
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { _id, photo, tourType, tripTitle, price, gallery, about, tourPlan } =
+    item || {};
   const handleHeartClick = () => {
-    setClicked(!clicked);
+    if (!user?.email) {
+      return navigate('/login', { state: { from: location }, replace: true });
+    }
+
+    const wishlistItem = {
+      package_id: _id,
+      photo,
+      tourType,
+      tripTitle,
+      price,
+      gallery,
+      about,
+      tourPlan,
+      userEmail: user?.email,
+    };
+    // console.log(wishlistItem, clicked);
+    axiosSecure
+      .post('/wishlist', wishlistItem)
+      .then(res => {
+        console.log(res.data);
+        if (res?.data?.insertedId) {
+          toast.success('Package Added to Wishlist!');
+          setClicked(!clicked);
+        }
+      })
+      .catch(err => toast.error(err.message));
   };
 
   return (
@@ -22,9 +54,10 @@ const PackagesCard = ({ item }) => {
         {/* heart btn */}
         <button
           onClick={handleHeartClick}
+          disabled={clicked}
           className={`!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase ${
             clicked ? 'text-red-500' : 'text-white'
-          } transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none`}
+          } transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none`}
           type="button"
           data-ripple-dark="true"
         >
