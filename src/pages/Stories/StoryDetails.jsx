@@ -8,8 +8,10 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from 'react-share';
+import useAuth from '../../hooks/useAuth';
 
 const StoryDetails = () => {
+  const { user } = useAuth();
   const loadedStory = useLoaderData();
   const location = useLocation();
   //   console.log(window.location);
@@ -19,7 +21,7 @@ const StoryDetails = () => {
   //   console.log(windowLink);
   //   console.log(Object.keys(loadedStory).join(','));
   const {
-    _id,
+    // _id,
     userName,
     userPhoto,
     location: place,
@@ -64,21 +66,48 @@ const StoryDetails = () => {
                   </p>
                 </div>
                 <p className="my-16 italic">{content}</p>
-                <p className="my-4">Share to social media:</p>
+                <div className="my-4">
+                  {user?.email ? (
+                    'Share to social media'
+                  ) : (
+                    <span>
+                      Please{' '}
+                      {/* <Navigate
+                        className="text-pink-500"
+                        to="/login"
+                        state={{ from: location }}
+                        replace
+                      >
+                        Login
+                      </Navigate>{' '} */}{' '}
+                      Login to share
+                    </span>
+                  )}
+                </div>
                 <div className="flex items-center gap-4">
-                  <LinkedinShareButton url={'google.com'} summary={`${title}`}>
-                    <LinkedinIcon size={40} round={true} />
-                  </LinkedinShareButton>
                   <FacebookShareButton
+                    disabled={!user?.email}
                     url={windowLink}
                     quote={`${title}`}
                     hashtag="#story"
                   >
                     <FacebookIcon size={40} round={true} />
                   </FacebookShareButton>
-                  <TwitterShareButton url={windowLink} title={`${title}`}>
+
+                  <TwitterShareButton
+                    disabled={!user?.email}
+                    url={windowLink}
+                    title={`${title}`}
+                  >
                     <TwitterIcon size={40} round={true} />
                   </TwitterShareButton>
+                  <LinkedinShareButton
+                    disabled={!user?.email}
+                    url={windowLink}
+                    summary={`${title}`}
+                  >
+                    <LinkedinIcon size={40} round={true} />
+                  </LinkedinShareButton>
                 </div>
               </div>
             </div>

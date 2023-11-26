@@ -1,19 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import useWishList from '../../hooks/useWishList';
 
 const PackagesCard = ({ item }) => {
   // console.log(Object.keys(item).join(','));
-
   const [clicked, setClicked] = useState(false);
+  const { wishlist, refetch } = useWishList();
+  // console.log(wishlist);
+  const foundObject = wishlist?.find(obj => obj.package_id === item._id);
+
+  useEffect(() => {
+    if (foundObject) {
+      setClicked(true);
+    } else {
+      setClicked(false);
+    }
+  }, [foundObject]);
+
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const location = useLocation();
   const { _id, photo, tourType, tripTitle, price, gallery, about, tourPlan } =
     item || {};
+
   const handleHeartClick = () => {
     if (!user?.email) {
       return navigate('/login', { state: { from: location }, replace: true });
@@ -37,10 +50,11 @@ const PackagesCard = ({ item }) => {
         console.log(res.data);
         if (res?.data?.insertedId) {
           toast.success('Package Added to Wishlist!');
-          setClicked(!clicked);
+          // setClicked(!clicked);
+          refetch();
         } else {
           toast.error(res?.data?.message);
-          setClicked(!clicked);
+          // setClicked(!clicked);
         }
       })
       .catch(err => toast.error(err.message));
