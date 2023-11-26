@@ -23,12 +23,10 @@ const Dropdown = () => {
         className="border-2 p-1 border-red-100 rounded-full cursor-pointer hover:shadow-md transition"
       >
         <img
-          className="rounded-full"
+          className="rounded-full w-9 h-9 object-cover"
           referrerPolicy="no-referrer"
           src={user && user.photoURL ? user.photoURL : noUserImg}
           alt="user photo"
-          height="40"
-          width="40"
         />
       </div>
 

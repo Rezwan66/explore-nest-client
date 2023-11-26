@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ScrollToTopOnNavigation from '../utilities/ScrollToTopOnNavigation';
 // import bg from '../assets/background/rose-petals (1).png';
 
 const MainLayout = () => {
@@ -15,6 +16,7 @@ const MainLayout = () => {
       //     backgroundSize: 'full',
       //   }}
     >
+      <ScrollToTopOnNavigation></ScrollToTopOnNavigation>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

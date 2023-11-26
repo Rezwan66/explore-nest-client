@@ -8,6 +8,8 @@ import PackageDetails from '../pages/AllPackages/PackageDetails';
 import GuideProfile from '../pages/TourGuides/GuideProfile';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
+import Community from '../pages/Community/Community';
+import PrivateRoute from './PrivateRoute';
 
 const Router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const Router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+      },
+      {
+        path: '/community',
+        element: (
+          <PrivateRoute>
+            <Community></Community>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/allPackages',

@@ -34,6 +34,7 @@ const Login = () => {
         const userInfo = {
           email: user?.email,
           name: user?.displayName,
+          photo: user?.photoURL,
         };
         axiosPublic.post('/users', userInfo).then(res => {
           console.log(res.data);
@@ -51,7 +52,7 @@ const Login = () => {
     >
       <div className="hero bg-transparent">
         <div className="hero-content">
-          <div className="card w-[375px] shadow-2xl glass bg-opacity-20 py-6">
+          <div className="card rounded-md w-[375px] shadow-2xl glass bg-opacity-20 py-6">
             <h1 className="text-3xl font-bold text-center tracking-widest">
               Login now!
             </h1>
@@ -84,7 +85,7 @@ const Login = () => {
                     Not a member?{' '}
                     <Link
                       to="/register"
-                      className="text-[#f50057] text-base font-bold"
+                      className="text-[#f50057] text-base font-bold uppercase"
                     >
                       Register
                     </Link>

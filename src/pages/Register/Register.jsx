@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import regBg from '../../assets/banner/banner6.jpg';
 import useAuth from '../../hooks/useAuth';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 // import { useState } from 'react';
 
@@ -45,6 +45,7 @@ const Register = () => {
             const userInfo = {
               name: name,
               email: email,
+              photo: photo,
             };
             axiosPublic.post('/users', userInfo).then(res => {
               if (res.data.insertedId) {
@@ -53,14 +54,16 @@ const Register = () => {
                 navigate(location?.state?.from?.pathname || '/', {
                   replace: true,
                 });
-              } else {
-                Swal.fire({
-                  title: 'Oops!',
-                  text: 'User already exists!',
-                  icon: 'error',
-                  confirmButtonText: 'Cool',
-                });
               }
+              // NO NEED TO GIVE ERROR IF NOT INSERTED SINCE FIREBASE ITSELF WILL GIVE ERROR IF SAME USER!!!
+              //   else {
+              //     Swal.fire({
+              //       title: 'Oops!',
+              //       text: 'User already exists!',
+              //       icon: 'error',
+              //       confirmButtonText: 'Cool',
+              //     });
+              //   }
             });
           })
           .catch(err => console.log(err.message));
@@ -78,6 +81,7 @@ const Register = () => {
         const userInfo = {
           email: user?.email,
           name: user?.displayName,
+          photo: user?.photoURL,
         };
         axiosPublic.post('/users', userInfo).then(res => {
           console.log(res.data);
@@ -95,7 +99,7 @@ const Register = () => {
     >
       <div className="hero bg-transparent">
         <div className="hero-content">
-          <div className="card w-[375px] shadow-2xl glass bg-opacity-20 py-6">
+          <div className="card rounded-md w-[375px] shadow-2xl glass bg-opacity-20 py-6">
             <h1 className="text-3xl font-bold text-center tracking-wide text-white">
               Sign Up Now!
             </h1>
@@ -169,7 +173,7 @@ const Register = () => {
                     Already a member?{' '}
                     <Link
                       to="/login"
-                      className="text-[#f50057] text-base font-bold"
+                      className="text-[#f50057] text-base font-bold uppercase"
                     >
                       Login
                     </Link>
