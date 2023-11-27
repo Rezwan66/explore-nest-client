@@ -38,7 +38,7 @@ const Dropdown = () => {
               <p className="text-xs">{user?.email}</p>
             </div>
             <Link
-              to="/dashboard"
+              to="/dashboard/userProfile"
               className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
             >
               Dashboard

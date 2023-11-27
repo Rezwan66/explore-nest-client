@@ -55,7 +55,7 @@ const UserProfile = () => {
             {' '}
             My Profile{' '}
           </h2>
-          <div className="w-[350px] md:w-[600px] lg:w-[700px] bg-base-200 md:px-6">
+          <div className="w-[350px] md:w-[600px] lg:w-[700px] md:px-6">
             <div className="flex flex-col items-center justify-between lg:flex-row-reverse gap-6">
               <div>
                 <img
@@ -63,7 +63,7 @@ const UserProfile = () => {
                   className="w-24 h-24 rounded-full shadow-2xl"
                 />
               </div>
-              <div className="border border-red-900">
+              <div className="">
                 <h1 className="text-3xl font-bold">{user?.displayName}</h1>
                 <p className="italic">{user?.email}</p>
                 {/* <button className="btn btn-primary">Get Started</button> */}
@@ -96,7 +96,7 @@ const UserProfile = () => {
                       />
                     </div>
                     {/* tourist email */}
-                    <div className="form-control">
+                    {/* <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
                           Your Email
@@ -109,9 +109,9 @@ const UserProfile = () => {
                         defaultValue={user?.email}
                         readOnly
                       />
-                    </div>
+                    </div> */}
                     {/* tourist image */}
-                    <div className="form-control">
+                    {/* <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
                           Profile Pic
@@ -123,6 +123,20 @@ const UserProfile = () => {
                         readOnly
                         className="input input-bordered"
                         disabled
+                      />
+                    </div> */}
+                    {/* story title  */}
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text text-xs font-bold">
+                          Story Title
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        name="title"
+                        className="input input-bordered"
+                        required
                       />
                     </div>
                     {/* location */}
@@ -155,20 +169,7 @@ const UserProfile = () => {
                         onChange={date => setStartDate(date)}
                       />
                     </div>
-                    {/* story title dropdown */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-xs font-bold">
-                          Story Title
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        name="title"
-                        className="input input-bordered"
-                        required
-                      />
-                    </div>
+
                     {/* content */}
                     <div className="form-control">
                       <label className="label">
@@ -176,7 +177,7 @@ const UserProfile = () => {
                           Story Description
                         </span>
                       </label>
-                      <input
+                      <textarea
                         type="text"
                         name="content"
                         className="input input-bordered"
