@@ -20,6 +20,7 @@ import Payment from '../pages/Dashboard/User/Payment/Payment';
 import DashboardHome from '../pages/Dashboard/DashboardHome';
 import AddPackage from '../pages/Dashboard/Admin/AddPackage';
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
+import AdminRoute from './AdminRoute';
 
 const Router = createBrowserRouter([
   {
@@ -91,11 +92,12 @@ const Router = createBrowserRouter([
         path: '',
         element: <DashboardHome></DashboardHome>,
       },
-      //   user routes
+      //   user+admin+guide route
       {
         path: 'userProfile',
         element: <UserProfile></UserProfile>,
       },
+      //   user routes
       {
         path: 'userBookings',
         element: <UserBookings></UserBookings>,
@@ -111,11 +113,19 @@ const Router = createBrowserRouter([
       //   admin routes
       {
         path: 'addPackage',
-        element: <AddPackage></AddPackage>,
+        element: (
+          <AdminRoute>
+            <AddPackage></AddPackage>
+          </AdminRoute>
+        ),
       },
       {
         path: 'manageUsers',
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
       },
     ],
   },

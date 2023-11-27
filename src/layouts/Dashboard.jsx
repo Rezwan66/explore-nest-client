@@ -11,12 +11,14 @@ import {
   FaUsers,
 } from 'react-icons/fa';
 import { MdAddCircleOutline } from 'react-icons/md';
+import useAdmin from '../hooks/useAdmin';
+import useGuide from '../hooks/useGuide';
 
 const Dashboard = () => {
   // todo: get is admin value from db
-  const isAdmin = true;
-  const isGuide = false;
-
+  const { isAdmin } = useAdmin();
+  const { isGuide } = useGuide();
+  console.log(isAdmin, isGuide);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -77,6 +79,12 @@ const Dashboard = () => {
             {isGuide && (
               <>
                 <li>Guide</li>
+                <li>
+                  <NavLink to="/dashboard/userProfile">
+                    <FaUserAlt />
+                    My Profile
+                  </NavLink>
+                </li>
               </>
             )}
             {/* only user links */}

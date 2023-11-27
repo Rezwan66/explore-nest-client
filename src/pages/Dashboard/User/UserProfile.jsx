@@ -5,10 +5,14 @@ import DatePicker from 'react-datepicker';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import useAdmin from '../../../hooks/useAdmin';
+import useGuide from '../../../hooks/useGuide';
 
 const UserProfile = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useAuth();
+  const { isAdmin } = useAdmin();
+  const { isGuide } = useGuide();
   const axiosSecure = useAxiosSecure();
 
   const handleAddStory = e => {
@@ -60,12 +64,16 @@ const UserProfile = () => {
               <div>
                 <img
                   src={user?.photoURL}
-                  className="w-24 h-24 rounded-full shadow-2xl"
+                  className="w-24 h-24 rounded-full shadow-2xl object-cover"
                 />
               </div>
               <div className="">
                 <h1 className="text-3xl font-bold">{user?.displayName}</h1>
                 <p className="italic">{user?.email}</p>
+                <p className="">
+                  <strong>Role: </strong>
+                  {(isAdmin && 'Admin') || (isGuide && 'Guide') || 'Tourist'}
+                </p>
                 {/* <button className="btn btn-primary">Get Started</button> */}
               </div>
             </div>
