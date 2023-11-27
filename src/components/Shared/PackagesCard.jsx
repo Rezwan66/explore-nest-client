@@ -31,6 +31,9 @@ const PackagesCard = ({ item }) => {
     if (!user?.email) {
       return navigate('/login', { state: { from: location }, replace: true });
     }
+    if (clicked) {
+      return toast.error('Already added to Wishlist');
+    }
 
     const wishlistItem = {
       package_id: _id,
@@ -72,7 +75,7 @@ const PackagesCard = ({ item }) => {
         {/* heart btn */}
         <button
           onClick={handleHeartClick}
-          disabled={clicked}
+          // disabled={clicked}
           className={`!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase ${
             clicked ? 'text-red-500' : 'text-white'
           } transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none`}

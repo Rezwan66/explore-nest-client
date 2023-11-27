@@ -12,6 +12,10 @@ import Community from '../pages/Community/Community';
 import PrivateRoute from './PrivateRoute';
 import AllStories from '../pages/Stories/AllStories';
 import StoryDetails from '../pages/Stories/StoryDetails';
+import Dashboard from '../layouts/Dashboard';
+import UserProfile from '../pages/Dashboard/User/UserProfile';
+import UserBookings from '../pages/Dashboard/User/UserBookings';
+import UserWishlist from '../pages/Dashboard/User/UserWishlist';
 
 const Router = createBrowserRouter([
   {
@@ -70,6 +74,24 @@ const Router = createBrowserRouter([
   {
     path: '/register',
     element: <Register></Register>,
+  },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'userProfile',
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: 'userBookings',
+        element: <UserBookings></UserBookings>,
+      },
+      {
+        path: 'userWishlist',
+        element: <UserWishlist></UserWishlist>,
+      },
+    ],
   },
 ]);
 

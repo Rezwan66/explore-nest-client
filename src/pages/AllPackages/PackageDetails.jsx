@@ -80,7 +80,7 @@ const PackageDetails = () => {
                 title: 'Booked!',
                 text: 'Your Trip has been booked.',
                 icon: 'success',
-                html: '<a href="/dashboard/my-bookings" style="color: #007BFF; text-decoration: underline; cursor: pointer;">Go to Bookings</a>',
+                html: '<a href="/dashboard/userBookings" style="color: #007BFF; text-decoration: underline; cursor: pointer;">Go to Bookings</a>',
               });
             }
           })
