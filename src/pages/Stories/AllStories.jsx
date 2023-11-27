@@ -28,7 +28,7 @@ const AllStories = () => {
                     src={story.spotPhoto}
                     alt=""
                   />
-                  <div>
+                  <div className="">
                     <div className="flex flex-col md:flex-row justify-between items-center md:gap-8 mt-4">
                       <div className="flex  items-center gap-2">
                         <div className="avatar">
@@ -41,15 +41,17 @@ const AllStories = () => {
                         </h3>
                       </div>
                       <p className="lg:block hidden my-4 text-xs md:text-sm italic">
-                        &quot; {story.content.slice(0, 80)}...&quot;
+                        &quot; {story.content.slice(0, 60)}...&quot;
                       </p>
                     </div>
-                    <h3 className="md:text-xl text-base text-center md:text-left uppercase font-semibold text-secondary my-2">
-                      {story.title}
-                    </h3>
-                    <p className="my-2 text-xs md:text-sm italic text-center md:text-left text-pink-500 font-medium">
-                      {story.location}
-                    </p>
+                    <div className="mt-2">
+                      <h3 className="md:text-xl text-base text-center md:text-left uppercase font-semibold text-secondary">
+                        {story.title}
+                      </h3>
+                      <p className="my-2 text-xs md:text-sm italic text-center md:text-left text-pink-500 font-medium">
+                        {story.location}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Link>

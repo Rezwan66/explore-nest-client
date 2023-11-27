@@ -16,16 +16,14 @@ const Dashboard = () => {
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-ghost btn-active drawer-button lg:hidden m-4"
-        >
-          <FaList className="text-lg"></FaList>
-        </label>
-
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content min-h-screen flex flex-col items-center justify-start bg-pink-50">
           {/* Page content here */}
-
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-ghost btn-active btn-circle absolute left-4 top-2 drawer-button lg:hidden"
+          >
+            <FaList className="text-lg"></FaList>
+          </label>
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
@@ -35,10 +33,14 @@ const Dashboard = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu text-lg p-4 w-80 min-h-full bg-pink-200 text-base-content">
-            <div className="flex items-center justify-center mb-8">
+            <div className="flex items-center justify-center gap-4 mb-8">
               <Link to="/">
-                <img src={logo} className="w-28" alt="" />
+                <img src={logo} className="w-24" alt="" />
               </Link>
+              <div className="md:text-lg text-xs font-black uppercase">
+                <p>Explore Nest</p>
+                <p className="md:text-sm md:tracking-widest">dashboard</p>
+              </div>
             </div>
             {/* Sidebar content here */}
             {/* only user links */}
