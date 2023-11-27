@@ -33,8 +33,9 @@ const Dashboard = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu text-lg p-4 w-80 min-h-screen bg-pink-200 text-base-content">
+            {/* logo+website name */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <Link to="/">
+              <Link to="/dashboard">
                 <img src={logo} className="w-24" alt="" />
               </Link>
               <div className="md:text-lg text-xs font-black uppercase">

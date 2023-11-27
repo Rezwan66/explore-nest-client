@@ -16,6 +16,8 @@ import Dashboard from '../layouts/Dashboard';
 import UserProfile from '../pages/Dashboard/User/UserProfile';
 import UserBookings from '../pages/Dashboard/User/UserBookings';
 import UserWishlist from '../pages/Dashboard/User/UserWishlist';
+import Payment from '../pages/Dashboard/User/Payment/Payment';
+import DashboardHome from '../pages/Dashboard/DashboardHome';
 
 const Router = createBrowserRouter([
   {
@@ -84,12 +86,20 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
+        path: '',
+        element: <DashboardHome></DashboardHome>,
+      },
+      {
         path: 'userProfile',
         element: <UserProfile></UserProfile>,
       },
       {
         path: 'userBookings',
         element: <UserBookings></UserBookings>,
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>,
       },
       {
         path: 'userWishlist',
