@@ -82,7 +82,7 @@ const UserBookings = () => {
               </div> */}
             </div>
             <div className="mt-8">
-              <div className="overflow-x-auto rounded-xl">
+              <div className="overflow-x-auto rounded-xl shadow-lg">
                 <table className="table">
                   {/* head */}
                   <thead className="bg-[#f73378]">
