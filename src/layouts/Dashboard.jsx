@@ -32,7 +32,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu text-lg p-4 w-80 min-h-full bg-pink-200 text-base-content">
+          <ul className="menu text-lg p-4 w-80 min-h-screen bg-pink-200 text-base-content">
             <div className="flex items-center justify-center gap-4 mb-8">
               <Link to="/">
                 <img src={logo} className="w-24" alt="" />

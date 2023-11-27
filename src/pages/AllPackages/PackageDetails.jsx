@@ -41,6 +41,7 @@ const PackageDetails = () => {
 
     const booking = {
       package_id: _id,
+      packageName: tripTitle,
       touristName: touristName,
       touristEmail: user?.email,
       touristPhoto: user?.photoURL,
@@ -48,7 +49,7 @@ const PackageDetails = () => {
       tourDate: startDate.toLocaleDateString('en-GB'),
       guide: guideName || 'no choice',
       guideEmail: guideEmail || 'not given',
-      status: 'Pending',
+      status: 'In Review',
     };
     console.log(booking);
 
