@@ -1,11 +1,15 @@
 import Container from '../../components/Container';
 import PackagesCard from '../../components/Shared/PackagesCard';
 import SharedBanner from '../../components/Shared/SharedBanner';
+import Spinner from '../../components/Shared/Spinner';
 import usePackages from '../../hooks/usePackages';
 
 const AllPackages = () => {
-  const { packages } = usePackages();
+  const { packages, isPending } = usePackages();
   //   const { tourGuides } = useTourGuides();
+  if (isPending) {
+    return <Spinner></Spinner>;
+  }
   return (
     <div>
       <SharedBanner></SharedBanner>

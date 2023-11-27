@@ -46,6 +46,7 @@ const Register = () => {
               name: name,
               email: email,
               photo: photo,
+              role: 'User',
             };
             axiosPublic.post('/users', userInfo).then(res => {
               if (res.data.insertedId) {
@@ -82,6 +83,7 @@ const Register = () => {
           email: user?.email,
           name: user?.displayName,
           photo: user?.photoURL,
+          role: 'User',
         };
         axiosPublic.post('/users', userInfo).then(res => {
           console.log(res.data);

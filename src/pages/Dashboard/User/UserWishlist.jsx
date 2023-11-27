@@ -5,10 +5,15 @@ import useWishList from '../../../hooks/useWishList';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import Spinner from '../../../components/Shared/Spinner';
 
 const UserWishlist = () => {
-  const { wishlist, refetch } = useWishList();
+  const { wishlist, refetch, isPending } = useWishList();
   const axiosSecure = useAxiosSecure();
+
+  if (isPending) {
+    return <Spinner></Spinner>;
+  }
 
   const handleDelete = _id => {
     console.log(_id);

@@ -8,9 +8,15 @@ import {
   FaList,
   FaTripadvisor,
   FaUserAlt,
+  FaUsers,
 } from 'react-icons/fa';
+import { MdAddCircleOutline } from 'react-icons/md';
 
 const Dashboard = () => {
+  // todo: get is admin value from db
+  const isAdmin = true;
+  const isGuide = false;
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -44,28 +50,59 @@ const Dashboard = () => {
               </div>
             </div>
             {/* Sidebar content here */}
+            {/* admin content */}
+            {isAdmin && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/userProfile">
+                    <FaUserAlt />
+                    My Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/addPackage">
+                    <MdAddCircleOutline />
+                    Add Package
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageUsers">
+                    <FaUsers />
+                    Manage Users
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {/* guide content */}
+            {isGuide && (
+              <>
+                <li>Guide</li>
+              </>
+            )}
             {/* only user links */}
-            <>
-              <li>
-                <NavLink to="/dashboard/userProfile">
-                  <FaUserAlt />
-                  My Profile
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/userBookings">
-                  <FaCalendarAlt />
-                  My Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/userWishlist">
-                  <FaHeart />
-                  My Wishlist
-                </NavLink>
-              </li>
-            </>
-            {/* go to home/mainLayout */}
+            {!isAdmin && !isGuide && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/userProfile">
+                    <FaUserAlt />
+                    My Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/userBookings">
+                    <FaCalendarAlt />
+                    My Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/userWishlist">
+                    <FaHeart />
+                    My Wishlist
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {/* go to home/mainLayout-shared links */}
             <div className="divider my-6"></div>
             <>
               <li>

@@ -2,9 +2,14 @@ import { Link } from 'react-router-dom';
 import Container from '../../components/Container';
 import SharedBanner from '../../components/Shared/SharedBanner';
 import useTouristStories from '../../hooks/useTouristStories';
+import Spinner from '../../components/Shared/Spinner';
 
 const AllStories = () => {
-  const { stories } = useTouristStories();
+  const { stories, isPending } = useTouristStories();
+
+  if (isPending) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <div>

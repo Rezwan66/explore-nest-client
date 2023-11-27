@@ -5,13 +5,18 @@ import { Link } from 'react-router-dom';
 import { MdCancel } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import Spinner from '../../../components/Shared/Spinner';
 
 const UserBookings = () => {
-  const { bookings, refetch } = useBookings();
+  const { bookings, refetch, isPending } = useBookings();
   const axiosSecure = useAxiosSecure();
   console.log(bookings);
   const totalPrice = bookings?.reduce((acc, item) => acc + item.price, 0);
   //   console.log(totalPrice);
+
+  if (isPending) {
+    return <Spinner></Spinner>;
+  }
 
   const handleDelete = _id => {
     console.log(_id);
@@ -102,7 +107,7 @@ const UserBookings = () => {
                       <tr key={item._id}>
                         <th>{idx + 1}</th>
 
-                        <td>{item?.packageName}</td>
+                        <td>{item?.packageName || 'Not Given'}</td>
                         <td>{item?.guide}</td>
                         <td>{item?.tourDate}</td>
                         <td>${item?.price}</td>

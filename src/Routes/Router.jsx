@@ -18,6 +18,8 @@ import UserBookings from '../pages/Dashboard/User/UserBookings';
 import UserWishlist from '../pages/Dashboard/User/UserWishlist';
 import Payment from '../pages/Dashboard/User/Payment/Payment';
 import DashboardHome from '../pages/Dashboard/DashboardHome';
+import AddPackage from '../pages/Dashboard/Admin/AddPackage';
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 
 const Router = createBrowserRouter([
   {
@@ -89,6 +91,7 @@ const Router = createBrowserRouter([
         path: '',
         element: <DashboardHome></DashboardHome>,
       },
+      //   user routes
       {
         path: 'userProfile',
         element: <UserProfile></UserProfile>,
@@ -104,6 +107,15 @@ const Router = createBrowserRouter([
       {
         path: 'userWishlist',
         element: <UserWishlist></UserWishlist>,
+      },
+      //   admin routes
+      {
+        path: 'addPackage',
+        element: <AddPackage></AddPackage>,
+      },
+      {
+        path: 'manageUsers',
+        element: <ManageUsers></ManageUsers>,
       },
     ],
   },
