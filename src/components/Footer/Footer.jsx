@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="footer-bg bg-fixed py-24 text-white">
       <Container>
-        <div className="footer bg-slate-500 glass py-10 md:px-4 rounded-md">
+        <div className="footer bg-slate-500 bg-opacity-60 glass py-10 md:px-4 rounded-md">
           <nav className="w-full flex justify-center">
             <Link to="/">
               <img src={logo} className="w-32" alt="" />

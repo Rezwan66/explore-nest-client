@@ -8,7 +8,6 @@ import PackageDetails from '../pages/AllPackages/PackageDetails';
 import GuideProfile from '../pages/TourGuides/GuideProfile';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
-import Community from '../pages/Community/Community';
 import PrivateRoute from './PrivateRoute';
 import AllStories from '../pages/Stories/AllStories';
 import StoryDetails from '../pages/Stories/StoryDetails';
@@ -23,6 +22,10 @@ import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 import AdminRoute from './AdminRoute';
 import GuideDashboardProfile from '../pages/Dashboard/Guide/GuideDashboardProfile';
 import GuideAssignedTours from '../pages/Dashboard/Guide/GuideAssignedTours';
+import Blogs from '../pages/Other/Blogs';
+import AboutUs from '../pages/Other/AboutUs';
+import ContactUs from '../pages/Other/ContactUs';
+import Community from '../pages/Other/Community';
 
 const Router = createBrowserRouter([
   {
@@ -41,6 +44,18 @@ const Router = createBrowserRouter([
             <Community></Community>
           </PrivateRoute>
         ),
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: '/contactUs',
+        element: <ContactUs></ContactUs>,
       },
       {
         path: '/allPackages',
