@@ -84,7 +84,7 @@ const Dashboard = () => {
               <>
                 <li>Guide</li>
                 <li>
-                  <NavLink to="/dashboard/userProfile">
+                  <NavLink to="/dashboard/guideProfile">
                     <FaUserAlt />
                     My Profile
                   </NavLink>

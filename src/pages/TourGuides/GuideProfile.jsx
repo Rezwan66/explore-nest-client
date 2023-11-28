@@ -161,9 +161,10 @@ const GuideProfile = () => {
                           <div className="text-teal-600">{experience}</div>
                           <div className="text-gray-500 text-sm mt-4">
                             <strong>Skills: </strong>
-                            {skills?.map(i => (
+                            {skills}
+                            {/* {skills?.map(i => (
                               <span key={i}>{i}, </span>
-                            ))}
+                            ))} */}
                           </div>
                         </li>
                       </ul>

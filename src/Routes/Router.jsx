@@ -21,6 +21,7 @@ import DashboardHome from '../pages/Dashboard/DashboardHome';
 import AddPackage from '../pages/Dashboard/Admin/AddPackage';
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 import AdminRoute from './AdminRoute';
+import GuideDashboardProfile from '../pages/Dashboard/Guide/GuideDashboardProfile';
 
 const Router = createBrowserRouter([
   {
@@ -126,6 +127,11 @@ const Router = createBrowserRouter([
             <ManageUsers></ManageUsers>
           </AdminRoute>
         ),
+      },
+      //   guide routes
+      {
+        path: 'guideProfile',
+        element: <GuideDashboardProfile></GuideDashboardProfile>,
       },
     ],
   },

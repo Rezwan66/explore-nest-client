@@ -1,61 +1,52 @@
-import { useState } from 'react';
+import Swal from 'sweetalert2';
 import DashboardContainer from '../../../components/Dashboard/DashboardContainer';
 import useAuth from '../../../hooks/useAuth';
-import DatePicker from 'react-datepicker';
+import useGuidesProfile from '../../../hooks/useGuidesProfile';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
-import useAdmin from '../../../hooks/useAdmin';
-// import useGuide from '../../../hooks/useGuide';
-// import useGuidesProfile from '../../../hooks/useGuidesProfile';
-// import Spinner from '../../../components/Shared/Spinner';
 
-const UserProfile = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const GuideDashboardProfile = () => {
   const { user } = useAuth();
-  const { isAdmin } = useAdmin();
+  const { tourGuideProfile, refetch } = useGuidesProfile();
   const axiosSecure = useAxiosSecure();
-
-  // if (isPending) {
-  //   return <Spinner></Spinner>;
-  // }
-
-  const handleAddStory = e => {
+  // console.log(Object.keys(tourGuideProfile).join(','));
+  const { _id, contact, name, photo, bio, education, skills, experience } =
+    tourGuideProfile || {};
+  const handleUpdateProfile = e => {
     e.preventDefault();
     const form = e.target;
-    const userName = form.userName.value || user?.displayName;
-    const location = form.location.value;
-    const title = form.title.value;
-    const content = form.content.value;
-    const spotPhoto = form.spotPhoto.value;
-
-    const story = {
-      userName,
-      userPhoto: user?.photoURL,
-      userEmail: user?.email,
-      location,
-      date: startDate.toLocaleDateString('en-GB'),
-      title,
-      content,
-      spotPhoto,
+    const guideName = form.name.value || user?.displayName;
+    const guidePhoto = form.photo.value || user?.photoURL;
+    const guideBio = form.bio.value || '';
+    const guideEducation = form.education.value || '';
+    const guideSkills = form.skills.value || '';
+    const guideExperience = form.experience.value || '';
+    const updatedInfo = {
+      guideName,
+      guidePhoto,
+      guideBio,
+      guideEducation,
+      guideSkills,
+      guideExperience,
     };
-    // console.log(story);
+    // console.log(updatedInfo);
+
     axiosSecure
-      .post('/stories', story)
+      .patch(`/guidesProfile/${_id}`, updatedInfo)
       .then(res => {
         console.log(res.data);
-        if (res?.data?.insertedId) {
+        if (res?.data?.modifiedCount > 0) {
+          refetch();
           form.reset();
           Swal.fire({
-            title: 'Story Added!',
-            text: 'Your story has been added.',
+            title: 'Profile Updated!',
+            text: 'Your profile has been updated.',
             icon: 'success',
           });
         }
       })
       .catch(err => toast.error(err.message));
   };
-
   return (
     <div>
       <DashboardContainer>
@@ -68,16 +59,16 @@ const UserProfile = () => {
             <div className="flex shadow-lg px-4 py-10 rounded-xl flex-col items-center justify-between lg:flex-row-reverse gap-6">
               <div>
                 <img
-                  src={user?.photoURL}
+                  src={photo}
                   className="w-24 h-24 rounded-full shadow-2xl object-cover"
                 />
               </div>
               <div className="">
-                <h1 className="text-3xl font-bold">{user?.displayName}</h1>
+                <h1 className="text-3xl font-bold">{name}</h1>
                 <p className="italic">{user?.email}</p>
                 <p className="mt-2 text-lg">
                   <strong>Role: </strong>
-                  {(isAdmin && 'Admin') || 'Tourist'}
+                  {'Guide'}
                 </p>
                 {/* <button className="btn btn-primary">Get Started</button> */}
               </div>
@@ -89,126 +80,110 @@ const UserProfile = () => {
               <div className="card w-full p-8 shadow-2xl bg-[#f9c8d9]">
                 <div className="text-center">
                   <h1 className="text-lg md:text-3xl mb-8 font-bold text-[#f50057]">
-                    Post A Story
+                    Update Guide Profile
                   </h1>
                 </div>
-                <form onSubmit={handleAddStory}>
+                <form onSubmit={handleUpdateProfile}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* tourist name */}
+                    {/* name */}
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
-                          Your Full Name
+                          Guide Profile Name *
                         </span>
                       </label>
                       <input
                         type="text"
-                        name="userName"
+                        defaultValue={name}
+                        name="name"
                         className="input input-bordered"
-                        defaultValue={user?.displayName}
                         required
                       />
                     </div>
-                    {/* tourist email */}
-                    {/* <div className="form-control">
+                    {/* photo  */}
+                    <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
-                          Your Email
+                          Guide Profile Photo *
                         </span>
                       </label>
                       <input
                         type="text"
+                        defaultValue={photo}
+                        name="photo"
                         className="input input-bordered"
                         required
-                        defaultValue={user?.email}
+                      />
+                    </div>
+                    {/* bio  */}
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text text-xs font-bold">
+                          Bio
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        name="bio"
+                        defaultValue={bio}
+                        className="input input-bordered"
+                      />
+                    </div>
+                    {/* contact */}
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text text-xs font-bold">
+                          Contact Details *
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={contact}
+                        name="contact"
                         readOnly
+                        className="input input-bordered"
                       />
-                    </div> */}
-                    {/* tourist image */}
-                    {/* <div className="form-control">
+                    </div>
+                    {/* education */}
+                    <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
-                          Profile Pic
+                          Education
                         </span>
                       </label>
                       <input
                         type="text"
-                        defaultValue={user?.photoURL}
-                        readOnly
+                        defaultValue={education}
+                        name="education"
                         className="input input-bordered"
-                        disabled
                       />
-                    </div> */}
-                    {/* story title  */}
+                    </div>
+                    {/* skills */}
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
-                          Story Title
+                          Skills (using commas)
                         </span>
                       </label>
                       <input
                         type="text"
-                        name="title"
-                        className="input input-bordered"
-                        required
-                      />
-                    </div>
-                    {/* location */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-xs font-bold">
-                          Location
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        //   defaultValue={price}
-                        name="location"
-                        required
+                        defaultValue={skills}
+                        name="skills"
                         className="input input-bordered"
                       />
                     </div>
-                    {/* date react-datepicker */}
-                    <div className="form-control">
+                    {/* experience */}
+                    <div className="form-control md:col-span-2">
                       <label className="label">
                         <span className="label-text text-xs font-bold">
-                          Pick a trip date
-                        </span>
-                      </label>
-                      <DatePicker
-                        className="input input-bordered w-full"
-                        showIcon
-                        dateFormat="dd/MM/yyyy"
-                        selected={startDate}
-                        onChange={date => setStartDate(date)}
-                      />
-                    </div>
-
-                    {/* content */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-xs font-bold">
-                          Story Description
+                          Experience
                         </span>
                       </label>
                       <textarea
                         type="text"
-                        name="content"
-                        className="input input-bordered"
-                      />
-                    </div>
-                    {/* photo */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-xs font-bold">
-                          Photo URL
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        name="spotPhoto"
-                        className="input input-bordered"
-                        required
+                        defaultValue={experience}
+                        name="experience"
+                        className="textarea textarea-bordered"
                       />
                     </div>
                   </div>
@@ -217,7 +192,7 @@ const UserProfile = () => {
                     <input
                       className="btn btn-secondary btn-block text-white"
                       type="submit"
-                      value="Add Story"
+                      value="Update Profile"
                     />
                   </div>
                 </form>
@@ -229,4 +204,4 @@ const UserProfile = () => {
     </div>
   );
 };
-export default UserProfile;
+export default GuideDashboardProfile;
