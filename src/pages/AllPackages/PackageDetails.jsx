@@ -264,7 +264,7 @@ const PackageDetails = () => {
                       required
                     >
                       <option disabled value="no choice">
-                        Select a category
+                        Select a guide
                       </option>
                       {tourGuides?.map(guide => (
                         <option key={guide._id} value={guide.name}>

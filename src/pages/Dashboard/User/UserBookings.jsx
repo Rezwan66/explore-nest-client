@@ -10,7 +10,7 @@ import Spinner from '../../../components/Shared/Spinner';
 const UserBookings = () => {
   const { bookings, refetch, isPending } = useBookings();
   const axiosSecure = useAxiosSecure();
-  console.log(bookings);
+  // console.log(bookings);
   const totalPrice = bookings?.reduce((acc, item) => acc + item.price, 0);
   //   console.log(totalPrice);
 

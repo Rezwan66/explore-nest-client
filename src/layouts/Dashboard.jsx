@@ -89,6 +89,12 @@ const Dashboard = () => {
                     My Profile
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/guideAssignedTours">
+                    <FaUserAlt />
+                    My Assigned Tours
+                  </NavLink>
+                </li>
               </>
             )}
             {/* only user links */}

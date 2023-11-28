@@ -4,6 +4,7 @@ import useAllUsers from '../../../hooks/useAllUsers';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import noPic from '../../../assets/images/icons8-test-account-64.png';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const ManageUsers = () => {
   const { users, refetch, isPending } = useAllUsers();
@@ -25,17 +26,20 @@ const ManageUsers = () => {
       confirmButtonText: 'Yes, make Admin!',
     }).then(result => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/users/admin/${user._id}`).then(res => {
-          console.log(res.data);
-          if (res.data.modifiedCount > 0) {
-            refetch();
-            Swal.fire({
-              title: 'Done!',
-              text: `${user.name} is an Admin now!`,
-              icon: 'success',
-            });
-          }
-        });
+        axiosSecure
+          .patch(`/users/admin/${user._id}`)
+          .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: 'Done!',
+                text: `${user.name} is an Admin now!`,
+                icon: 'success',
+              });
+            }
+          })
+          .catch(err => toast.error(err.message));
       }
     });
   };
@@ -58,17 +62,20 @@ const ManageUsers = () => {
             user?.photo ||
             'https://i.ibb.co/ww0mFQx/icons8-test-account-64.png',
         };
-        axiosSecure.patch(`/users/guide/${user._id}`, guide).then(res => {
-          console.log(res.data);
-          if (res.data.modifiedCount > 0) {
-            refetch();
-            Swal.fire({
-              title: 'Done!',
-              text: `${user.name} is a Guide now!`,
-              icon: 'success',
-            });
-          }
-        });
+        axiosSecure
+          .patch(`/users/guide/${user._id}`, guide)
+          .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: 'Done!',
+                text: `${user.name} is a Guide now!`,
+                icon: 'success',
+              });
+            }
+          })
+          .catch(err => toast.error(err.message));
       }
     });
   };
