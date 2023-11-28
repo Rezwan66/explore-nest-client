@@ -109,7 +109,7 @@ const PackagesCard = ({ item }) => {
           </h5>
         </div>
         <p className="block font-sans text-3xl antialiased font-black leading-relaxed text-gray-700 tracking-wider">
-          {price}
+          ${price}
         </p>
       </div>
       <div className="p-6 pt-3">

@@ -18,7 +18,7 @@ const Dashboard = () => {
   // todo: get is admin value from db
   const { isAdmin } = useAdmin();
   const { isGuide } = useGuide();
-  console.log(isAdmin, isGuide);
+  // console.log(isAdmin, isGuide);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -47,8 +47,12 @@ const Dashboard = () => {
                 <img src={logo} className="w-24" alt="" />
               </Link>
               <div className="md:text-lg text-xs font-black uppercase">
-                <p>Explore Nest</p>
-                <p className="md:text-sm md:tracking-widest">dashboard</p>
+                <p>dashboard</p>
+                <p className="md:text-xs md:tracking-widest">
+                  <span>
+                    {(isAdmin && 'Admin') || (isGuide && 'Guide') || 'Tourist'}
+                  </span>
+                </p>
               </div>
             </div>
             {/* Sidebar content here */}

@@ -271,11 +271,6 @@ const PackageDetails = () => {
                           {guide?.name}
                         </option>
                       ))}
-                      {/* <option value="salad">Salad</option>
-                      <option value="pizza">Pizza</option>
-                      <option value="soup">Soup</option>
-                      <option value="dessert">Dessert</option>
-                      <option value="drinks">Drinks</option> */}
                     </select>
                   </div>
                 </div>

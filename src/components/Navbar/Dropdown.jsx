@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import noUserImg from '../../assets/images/profile.png';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -7,6 +7,8 @@ import toast from 'react-hot-toast';
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logoutUser } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     logoutUser()
@@ -16,10 +18,18 @@ const Dropdown = () => {
       .catch(error => toast.error(error.message));
   };
 
+  const handleDropdownClick = () => {
+    if (!user) {
+      navigate('/login', { state: { from: location }, replace: true });
+    } else {
+      setIsOpen(!isOpen);
+    }
+  };
+
   return (
     <div className="relative">
       <div
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleDropdownClick}
         className="border-2 p-1 border-red-100 rounded-full cursor-pointer hover:shadow-md transition"
       >
         <img

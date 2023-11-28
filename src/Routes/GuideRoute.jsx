@@ -11,7 +11,7 @@ const GuideRoute = ({ children }) => {
   if (loading || isGuideLoading) {
     return <Spinner></Spinner>;
   }
-  if (!user && !isGuide) {
+  if (!user || !isGuide) {
     return <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
   return children;

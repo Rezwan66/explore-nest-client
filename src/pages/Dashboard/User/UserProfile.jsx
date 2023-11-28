@@ -60,7 +60,7 @@ const UserProfile = () => {
             My Profile{' '}
           </h2>
           <div className="w-[350px] md:w-[600px] lg:w-[700px] md:px-6">
-            <div className="flex flex-col items-center justify-between lg:flex-row-reverse gap-6">
+            <div className="flex shadow-lg px-4 py-10 rounded-xl flex-col items-center justify-between lg:flex-row-reverse gap-6">
               <div>
                 <img
                   src={user?.photoURL}
@@ -70,7 +70,7 @@ const UserProfile = () => {
               <div className="">
                 <h1 className="text-3xl font-bold">{user?.displayName}</h1>
                 <p className="italic">{user?.email}</p>
-                <p className="">
+                <p className="mt-2 text-lg">
                   <strong>Role: </strong>
                   {(isAdmin && 'Admin') || (isGuide && 'Guide') || 'Tourist'}
                 </p>
@@ -83,7 +83,7 @@ const UserProfile = () => {
               <div className="card w-full p-8 shadow-2xl bg-[#f9c8d9]">
                 <div className="text-center">
                   <h1 className="text-lg md:text-3xl mb-8 font-bold text-[#f50057]">
-                    Add A Story
+                    Post A Story
                   </h1>
                 </div>
                 <form onSubmit={handleAddStory}>
