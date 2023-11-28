@@ -119,7 +119,7 @@ const ManageUsers = () => {
                           <div className="avatar">
                             <div className="mask mask-circle w-8 h-8">
                               <img
-                                src={item?.photo || noPic}
+                                src={item?.photo ? item?.photo : noPic}
                                 className="object-cover"
                                 alt="Avatar Tailwind CSS Component"
                               />

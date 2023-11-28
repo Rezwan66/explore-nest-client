@@ -11,9 +11,9 @@ const AdminRoute = ({ children }) => {
   if (loading || isAdminLoading) {
     return <Spinner></Spinner>;
   }
-  if (!user || !isAdmin) {
-    return <Navigate to="/" state={{ from: location }} replace></Navigate>;
+  if (user && isAdmin) {
+    return children;
   }
-  return children;
+  return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 export default AdminRoute;

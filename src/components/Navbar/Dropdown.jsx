@@ -55,7 +55,7 @@ const Dropdown = () => {
             </Link>
 
             <Link
-              to="/offers"
+              to="/dashboard/userBookings"
               className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
             >
               Offers

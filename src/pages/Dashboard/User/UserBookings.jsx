@@ -6,20 +6,50 @@ import { MdCancel } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import Spinner from '../../../components/Shared/Spinner';
+// import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
+// import { useEffect, useState } from 'react';
 
 const UserBookings = () => {
+  // const [showConfetti, setShowConfetti] = useState(false);
+  // const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const { bookings, refetch, isPending } = useBookings();
   const axiosSecure = useAxiosSecure();
+  // const { width, height } = useWindowSize();
   // console.log(bookings);
   const totalPrice = bookings?.reduce((acc, item) => acc + item.price, 0);
   //   console.log(totalPrice);
+
+  // useEffect(() => {
+  //   window.onresize = () => handleWindowSize();
+  //   // setTimeout(() => {
+  //   //   console.log('bookings', bookings);
+  //   // }, 8000);
+  //   // console.log('Checking bookings:', bookings?.length);
+  //   if (bookings?.length >= 3) {
+  //     console.log(bookings.length, 'setting confetti to true');
+  //     setShowConfetti(true);
+  //     setTimeout(() => {
+  //       console.log('Setting showConfetti to false after timeout');
+  //       setShowConfetti(false);
+  //     }, 8000);
+  //     // return () => clearTimeout(timeoutId);
+  //   }
+  // }, [bookings?.length]);
 
   if (isPending) {
     return <Spinner></Spinner>;
   }
 
+  // const handleWindowSize = () => {
+  //   setWindowSize({
+  //     width: window.innerWidth,
+  //     height: window.innerHeight,
+  //   });
+  // };
+
   const handleDelete = _id => {
-    console.log(_id);
+    // console.log(_id);
     Swal.fire({
       title: 'Are you sure?',
       text: 'Do you really want to cancel this booking?',
@@ -129,7 +159,7 @@ const UserBookings = () => {
                                 <MdCancel></MdCancel>
                               </button>
                             )}
-                            {bookings.length >= 3 ? (
+                            {bookings?.length >= 3 ? (
                               <button className="btn btn-xs uppercase btn-secondary">
                                 Apply
                               </button>
@@ -165,6 +195,13 @@ const UserBookings = () => {
             </div>
           </div>
         </div>
+        {bookings.length >= 3 && (
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={50}
+          />
+        )}
       </DashboardContainer>
     </div>
   );

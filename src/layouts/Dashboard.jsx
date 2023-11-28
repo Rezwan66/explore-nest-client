@@ -3,6 +3,7 @@ import logo from '../assets/logo/png/footerLogo.png';
 import {
   FaBook,
   FaCalendarAlt,
+  FaCalendarDay,
   FaHeart,
   FaHouseUser,
   FaList,
@@ -82,7 +83,6 @@ const Dashboard = () => {
             {/* guide content */}
             {isGuide && (
               <>
-                <li>Guide</li>
                 <li>
                   <NavLink to="/dashboard/guideProfile">
                     <FaUserAlt />
@@ -91,7 +91,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/guideAssignedTours">
-                    <FaUserAlt />
+                    <FaCalendarDay />
                     My Assigned Tours
                   </NavLink>
                 </li>

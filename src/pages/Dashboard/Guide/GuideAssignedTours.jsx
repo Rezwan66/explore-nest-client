@@ -14,7 +14,7 @@ const GuideAssignedTours = () => {
   }
 
   const handleClick = (_id, value) => {
-    console.log(_id, value);
+    // console.log(_id, value);
     axiosSecure
       .patch(`/bookingsGuide/${_id}`, { value })
       .then(res => {
