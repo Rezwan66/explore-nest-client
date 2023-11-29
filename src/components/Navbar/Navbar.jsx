@@ -6,9 +6,9 @@ import Dropdown from './Dropdown';
 
 const Navbar = () => {
   return (
-    <div className="bg-base-100 py-2">
+    <div className="bg-transparent py-2">
       <Container>
-        <div className="navbar bg-base-100 px-0">
+        <div className="navbar bg-transparent px-0">
           <div className="navbar-start">
             <div className="dropdown z-50">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
             {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
             <Link to="/">
-              <img src={logo} className="w-32" alt="" />
+              <img src={logo} className="w-32 rounded-3xl" alt="" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

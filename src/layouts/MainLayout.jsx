@@ -9,7 +9,7 @@ const MainLayout = () => {
   // console.log(location.pathname);
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen bg-pink-50"
       //   style={{
       //     backgroundImage: `url('${bg}')`,
       //     backgroundRepeat: 'no-repeat',

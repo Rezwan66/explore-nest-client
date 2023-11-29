@@ -6,7 +6,7 @@ const Blogs = () => {
     <div>
       <SharedBanner></SharedBanner>
 
-      <div className="my-6">
+      <div className="">
         <Container>
           <div className="flex justify-center items-center">
             <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
