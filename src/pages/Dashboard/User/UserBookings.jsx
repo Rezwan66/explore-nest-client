@@ -80,7 +80,7 @@ const UserBookings = () => {
   return (
     <div>
       <DashboardContainer>
-        <div className="my-16">
+        <div className="my-16 min-h-screen">
           <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
             {' '}
             My Bookings{' '}
@@ -90,6 +90,7 @@ const UserBookings = () => {
               <h2 className="text-lg font-bold">
                 Total Items: {bookings?.length}
               </h2>
+
               <h2 className="text-lg font-bold">Total Price: ${totalPrice}</h2>
               {/* top buttons */}
               {/* <div className="flex items-center gap-2">
@@ -116,7 +117,13 @@ const UserBookings = () => {
                 )}
               </div> */}
             </div>
-            <div className="mt-8">
+            {bookings.length >= 3 && (
+              <h2 className="text-xs font-bold italic text-center text-[#f73378] mt-4">
+                ** Congrats, you are eligible for a discount in any of our
+                packages! **
+              </h2>
+            )}
+            <div className="mt-4">
               <div className="overflow-x-auto rounded-xl shadow-lg">
                 <table className="table">
                   {/* head */}
