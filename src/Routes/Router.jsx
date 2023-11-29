@@ -69,13 +69,15 @@ const Router = createBrowserRouter([
         path: '/package/:id',
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allPackages/${params.id}`),
+          fetch(
+            `https://explore-nest-server.vercel.app/allPackages/${params.id}`
+          ),
       },
       {
         path: '/tourGuides/:id',
         element: <GuideProfile></GuideProfile>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/guides/${params.id}`),
+          fetch(`https://explore-nest-server.vercel.app/guides/${params.id}`),
       },
       {
         path: '/stories',
@@ -85,7 +87,7 @@ const Router = createBrowserRouter([
         path: '/stories/:id',
         element: <StoryDetails></StoryDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/stories/${params.id}`),
+          fetch(`https://explore-nest-server.vercel.app/stories/${params.id}`),
       },
     ],
   },

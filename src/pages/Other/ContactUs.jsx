@@ -6,7 +6,7 @@ const ContactUs = () => {
     <div>
       <SharedBanner></SharedBanner>
 
-      <div className="my-14">
+      <div className="mt-14 mb-40">
         <Container>
           <h2 className="md:text-4xl text-2xl font-semibold mb-6 text-error text-center">
             {' '}
