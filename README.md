@@ -1,6 +1,6 @@
 # Explore Nest
 
-Explore Nest is an online tourist guide platform that provides comprehensive information and resources for travelers seeking guidance on popular destinations and booking a tour package.
+Explore Nest is an online tourist guide platform that provides comprehensive information and resources for travelers seeking guidance on popular destinations and booking a tour package. There is also a dashboard for logged in users to manage different roles such as Tourists, Tour Guides, and Admin.
 
 ### Technologies Used
 
@@ -9,7 +9,7 @@ Explore Nest is an online tourist guide platform that provides comprehensive inf
 ##### Framework and component libraries used
 
 - Tailwind CSS and DaisyUI.
-- Material UI (MUI) : (MUI accordion component to display Trip Itineraries).
+- Material UI (MUI)
 
 ### Features & Functionalities
 
