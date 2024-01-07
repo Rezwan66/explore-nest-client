@@ -8,26 +8,28 @@ const Footer = () => {
   return (
     <footer className="footer-bg bg-fixed py-24 text-white">
       <Container>
-        <div className="footer bg-slate-500 bg-opacity-60 glass py-10 md:px-4 rounded-md">
-          <nav className="w-full flex justify-center">
+        <div className="footer bg-slate-500 bg-opacity-60 glass py-10 px-4 rounded-md">
+          <nav className="w-full flex justify-center items-center">
             <Link to="/">
-              <img src={logo} className="w-32" alt="" />
+              <img src={logo} className="w-28 md:mr-0 mr-16" alt="" />
             </Link>
           </nav>
-          <nav className="w-full flex md:flex-col justify-center">
+
+          <nav className="w-full flex flex-col justify-center">
             <header className="footer-title">Company</header>
             <button className="link link-hover">About us</button>
             <button className="link link-hover">Contact</button>
             <button className="link link-hover">Jobs</button>
             <button className="link link-hover">Press kit</button>
           </nav>
-          <nav className="w-full flex md:flex-col justify-center">
+          <nav className="w-full  flex flex-col justify-center">
             <header className="footer-title">Legal</header>
             <button className="link link-hover">Terms of use</button>
             <button className="link link-hover">Privacy policy</button>
             <button className="link link-hover">Cookie policy</button>
           </nav>
-          <form className="pl-8 md:pl-0">
+
+          <form className="">
             <header className="footer-title md:text-left text-center">
               Newsletter
             </header>
@@ -41,7 +43,7 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="username@site.com"
-                  className="input input-bordered join-item text-black"
+                  className="input input-bordered join-item text-black md:w-full w-32"
                 />
                 {/* <TextField
                   sx={{ color: '#fff' }}

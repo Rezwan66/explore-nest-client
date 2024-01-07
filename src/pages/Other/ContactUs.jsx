@@ -21,6 +21,7 @@ const ContactUs = () => {
         result => {
           // console.log(result);
           if (result.status === 200) {
+            form.current.reset();
             toast.success('Email sent to admin');
           } else {
             toast.error(result.text);

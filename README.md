@@ -35,6 +35,11 @@ After configuring the environment variables, run this command to start the proje
 npm run dev
 ```
 
+### Updated Features
+
+- Implemented the functionality to send Email to the Admin in the contact us page using Email.js.
+- Fixed responsive issue of the footer on very small devices.
+
 ### Features & Functionalities
 
 ##### USERS/TOURISTS
