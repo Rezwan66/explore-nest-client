@@ -1,7 +1,38 @@
+import { useRef } from 'react';
 import Container from '../../components/Container';
 import SharedBanner from '../../components/Shared/SharedBanner';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 const ContactUs = () => {
+  const form = useRef();
+
+  const sendEmail = e => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        `${import.meta.env.VITE_EMAILJS_SERVICE_ID}`,
+        `${import.meta.env.VITE_EMAILJS_TEMPLATE_ID}`,
+        form.current,
+        `${import.meta.env.VITE_EMAILJS_PUBLIC_KEY}`
+      )
+      .then(
+        result => {
+          // console.log(result);
+          if (result.status === 200) {
+            toast.success('Email sent to admin');
+          } else {
+            toast.error(result.text);
+          }
+        },
+        error => {
+          // console.log(error.text);
+          toast.error(error.text);
+        }
+      );
+  };
+
   return (
     <div>
       <SharedBanner></SharedBanner>
@@ -93,8 +124,8 @@ const ContactUs = () => {
                     </div>
                   </div>
                 </div>
-
-                <form className="p-6 flex flex-col justify-center">
+                {/* contact form using Email.js */}
+                {/* <form className="p-6 flex flex-col justify-center">
                   <div className="flex flex-col">
                     <label htmlFor="name" className="hidden">
                       Full Name
@@ -140,6 +171,47 @@ const ContactUs = () => {
                   >
                     Submit
                   </button>
+                </form> */}
+                {/* from email js */}
+                <form
+                  ref={form}
+                  onSubmit={sendEmail}
+                  className="p-6 flex flex-col justify-center"
+                >
+                  <label htmlFor="name" className="hidden">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="from_name"
+                    id="name"
+                    placeholder="Full Name"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                  <label htmlFor="email" className="hidden">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="from_email"
+                    placeholder="Email"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                  <label htmlFor="mess" className="hidden">
+                    Number
+                  </label>
+                  <textarea
+                    id="mess"
+                    name="message"
+                    placeholder="Your Message"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                  <input
+                    type="submit"
+                    value="Send"
+                    className="md:w-32 bg-indigo-600 cursor-pointer hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300"
+                  />
                 </form>
               </div>
             </div>
