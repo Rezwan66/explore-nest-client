@@ -34,14 +34,14 @@ const TourismGuideSection = () => {
                 <iframe
                   // width="560"
                   // height="315"
-                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
+                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-80"
                   src="https://www.youtube.com/embed/JLjvEYMBGzQ?si=AsnEaHAWu-gV1DZU"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
                 <iframe
-                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
+                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-80"
                   src="https://www.youtube.com/embed/4FrPZoofdBQ?si=VSCNUy0g-jT14BZO"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -50,14 +50,14 @@ const TourismGuideSection = () => {
               </div>
               <div className="flex justify-center items-center gap-6 flex-col md:flex-row">
                 <iframe
-                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
+                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-80"
                   src="https://www.youtube.com/embed/sFoJBWkDnO8?si=jkJMgD9tPvP2CiXW"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
                 <iframe
-                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-96"
+                  className="rounded-xl lg:h-72 md:w-[520px] h-44 w-80"
                   src="https://www.youtube.com/embed/V2jk8PclZwg?si=KOo178_icHMcDaAl"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -88,7 +88,7 @@ const TourismGuideSection = () => {
         <TabPanel>
           <div className="video-tab bg-fixed py-20 mt-2">
             <Container>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {tourGuides?.map(guide => (
                   <GuideProfileCard
                     key={guide._id}

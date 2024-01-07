@@ -73,12 +73,12 @@ const Banner = () => {
         </SwiperSlide>
       </Swiper>
       <h2 className="absolute top-20 md:left-20 left-10 z-10 text-white">
-        <span className="text-info text-5xl font-bold md:tracking-widest">
+        <span className="text-info text-4xl md:text-5xl font-bold md:tracking-widest">
           ExploreNest:
         </span>
         <br />
         <br />
-        <span className="text-lg font-medium text-white">
+        <span className="text-xs md:text-lg font-medium text-white">
           Your Gateway{' '}
           <Typewriter
             words={['to Limitless Adventures!']}
@@ -94,7 +94,7 @@ const Banner = () => {
         <br />
         <span>
           <Link to="/allPackages">
-            <button className="btn btn-block btn-secondary uppercase md:mt-40 mt-6">
+            <button className="btn md:btn-block btn-secondary uppercase md:mt-40 mt-6">
               Book Today
             </button>
           </Link>
