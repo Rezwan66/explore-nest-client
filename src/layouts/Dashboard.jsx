@@ -7,6 +7,7 @@ import {
   FaHeart,
   FaHouseUser,
   FaList,
+  FaMoneyBill,
   FaTripadvisor,
   FaUserAlt,
   FaUsers,
@@ -116,6 +117,12 @@ const Dashboard = () => {
                   <NavLink to="/dashboard/userWishlist">
                     <FaHeart />
                     My Wishlist
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/userPayments">
+                    <FaMoneyBill />
+                    My Payments
                   </NavLink>
                 </li>
               </>

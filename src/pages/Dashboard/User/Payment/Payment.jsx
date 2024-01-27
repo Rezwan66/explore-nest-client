@@ -23,12 +23,12 @@ const Payment = () => {
     <div>
       <DashboardContainer>
         <div className="my-16">
-          <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
+          <h2 className="md:text-3xl text-xl font-semibold mb-10 text-error text-center">
             {' '}
-            Payment{' '}
+            Payment for {booking?.packageName}
           </h2>
           <Elements stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm booking={booking} />
           </Elements>
         </div>
       </DashboardContainer>

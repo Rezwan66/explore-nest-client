@@ -26,6 +26,7 @@ import Blogs from '../pages/Other/Blogs';
 import AboutUs from '../pages/Other/AboutUs';
 import ContactUs from '../pages/Other/ContactUs';
 import Community from '../pages/Other/Community';
+import UserPayments from '../pages/Dashboard/User/UserPayments';
 
 const Router = createBrowserRouter([
   {
@@ -128,6 +129,10 @@ const Router = createBrowserRouter([
       {
         path: 'userWishlist',
         element: <UserWishlist></UserWishlist>,
+      },
+      {
+        path: 'userPayments',
+        element: <UserPayments />,
       },
       //   admin routes
       {
