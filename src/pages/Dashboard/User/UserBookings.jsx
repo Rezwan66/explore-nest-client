@@ -179,7 +179,7 @@ const UserBookings = () => {
                               </button>
                             )}
                             {item?.status === 'Accepted' ? (
-                              <Link to="/dashboard/payment">
+                              <Link to={`/dashboard/payment/${item._id}`}>
                                 <button className="btn btn-xs uppercase btn-primary text-white">
                                   pay
                                 </button>
