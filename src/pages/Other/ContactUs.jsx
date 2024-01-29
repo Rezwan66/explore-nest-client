@@ -9,7 +9,6 @@ const ContactUs = () => {
 
   const sendEmail = e => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         `${import.meta.env.VITE_EMAILJS_SERVICE_ID}`,

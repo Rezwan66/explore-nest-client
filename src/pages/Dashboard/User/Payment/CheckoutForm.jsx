@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { createPaymentIntent } from '../../../../utilities/payment';
 import toast from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
 
 const CheckoutForm = ({ booking }) => {
   const stripe = useStripe();
@@ -96,6 +97,32 @@ const CheckoutForm = ({ booking }) => {
         await axiosSecure.delete(`/bookings/${booking?._id}`);
         const text = `Payment Successful! ${paymentIntent.id}`;
         toast.success(text);
+        // send email of payment confirmation
+        emailjs
+          .send(
+            `${import.meta.env.VITE_EMAILJS_SERVICE_ID}`,
+            `${import.meta.env.VITE_EMAILJS_TEMPLATE_ID_PURCHASE}`,
+            {
+              from_name: user?.displayName,
+              to_email: user?.email,
+              message: `Transaction ID: ${paymentInfo.transactionId}, Date of Transaction: ${paymentInfo.date}`,
+            },
+            `${import.meta.env.VITE_EMAILJS_PUBLIC_KEY}`
+          )
+          .then(
+            result => {
+              // console.log(result);
+              if (result.status === 200) {
+                toast.success('Check you Email!');
+              } else {
+                toast.error(result.text);
+              }
+            },
+            error => {
+              // console.log(error.text);
+              toast.error(error.text);
+            }
+          );
         navigate('/dashboard/userPayments');
       } catch (error) {
         toast.error(error.message);

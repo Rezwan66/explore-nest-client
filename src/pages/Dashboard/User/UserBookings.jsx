@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import Spinner from '../../../components/Shared/Spinner';
 // import useWindowSize from 'react-use/lib/useWindowSize';
-import Confetti from 'react-confetti';
+// import Confetti from 'react-confetti';
 // import { useEffect, useState } from 'react';
 
 const UserBookings = () => {
@@ -202,13 +202,13 @@ const UserBookings = () => {
             </div>
           </div>
         </div>
-        {bookings.length >= 3 && (
+        {/* {bookings.length >= 3 && (
           <Confetti
             width={window.innerWidth}
             height={window.innerHeight}
             numberOfPieces={50}
           />
-        )}
+        )} */}
       </DashboardContainer>
     </div>
   );
