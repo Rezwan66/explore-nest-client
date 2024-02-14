@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Container from '../Container';
+// import Container from '../Container';
 import logo from '../../assets/logo/png/logo-no-background.png';
 import NavLinks from './NavLinks';
 import Dropdown from './Dropdown';
@@ -7,7 +7,7 @@ import Dropdown from './Dropdown';
 const Navbar = () => {
   return (
     <div className="bg-transparent py-2">
-      <Container>
+      <div className=" mx-auto md:px-10 lg:px-16 px-4">
         <div className="navbar bg-transparent px-0">
           <div className="navbar-start">
             <div className="dropdown z-50">
@@ -48,7 +48,7 @@ const Navbar = () => {
             <Dropdown></Dropdown>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };
