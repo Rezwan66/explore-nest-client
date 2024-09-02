@@ -17,7 +17,7 @@ const Blogs = () => {
                 <h1 className="leading-9 text-center md:text-4xl text-2xl font-semibold text-error ">
                   Our Blogs
                 </h1>
-                <p className="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
+                <p className="text-base leading-normal text-center text-gray-600 mt-4 lg:w-1/2 md:w-10/12 w-11/12">
                   Embark on a virtual journey of discovery with our travel
                   blogs. From breathtaking destinations to travel tips and
                   cultural insights, our articles are your passport to
