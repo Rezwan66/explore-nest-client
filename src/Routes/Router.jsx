@@ -3,7 +3,6 @@ import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home/Home';
 import ErrorPage from '../pages/ErrorPage';
 import AllPackages from '../pages/AllPackages/AllPackages';
-import PackageCategory from '../pages/AllPackages/PackageCategory';
 import PackageDetails from '../pages/AllPackages/PackageDetails';
 import GuideProfile from '../pages/TourGuides/GuideProfile';
 import Login from '../pages/Login/Login';
@@ -27,6 +26,8 @@ import AboutUs from '../pages/Other/AboutUs';
 import ContactUs from '../pages/Other/ContactUs';
 import Community from '../pages/Other/Community';
 import UserPayments from '../pages/Dashboard/User/UserPayments';
+import PrivacyPolicy from '../pages/Other/PrivacyPolicy';
+import HelpSupport from '../pages/Other/HelpSupport';
 
 const Router = createBrowserRouter([
   {
@@ -59,26 +60,28 @@ const Router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
-        path: '/allPackages',
-        element: <AllPackages></AllPackages>,
+        path: '/privacy',
+        element: <PrivacyPolicy></PrivacyPolicy>,
       },
       {
-        path: '/allPackages/:category',
-        element: <PackageCategory></PackageCategory>,
+        path: '/help',
+        element: <HelpSupport></HelpSupport>,
+      },
+      {
+        path: '/allPackages',
+        element: <AllPackages></AllPackages>,
       },
       {
         path: '/package/:id',
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
-          fetch(
-            `https://explore-nest-server.vercel.app/allPackages/${params.id}`
-          ),
+          fetch(`http://localhost:5000/allPackages/${params.id}`),
       },
       {
         path: '/tourGuides/:id',
         element: <GuideProfile></GuideProfile>,
         loader: ({ params }) =>
-          fetch(`https://explore-nest-server.vercel.app/guides/${params.id}`),
+          fetch(`http://localhost:5000/guides/${params.id}`),
       },
       {
         path: '/stories',
@@ -88,7 +91,7 @@ const Router = createBrowserRouter([
         path: '/stories/:id',
         element: <StoryDetails></StoryDetails>,
         loader: ({ params }) =>
-          fetch(`https://explore-nest-server.vercel.app/stories/${params.id}`),
+          fetch(`http://localhost:5000/stories/${params.id}`),
       },
     ],
   },

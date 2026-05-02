@@ -175,7 +175,7 @@ const Register = () => {
                     Already a member?{' '}
                     <Link
                       to="/login"
-                      className="text-[#f50057] text-base font-bold uppercase"
+                      className="text-primary text-base font-bold uppercase"
                     >
                       Login
                     </Link>
@@ -186,28 +186,23 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button
                   type="submit"
-                  className="btn btn-error text-white text-base"
+                  className="btn btn-primary text-white text-base"
                 >
                   Sign Up
                 </button>
               </div>
             </form>
-            <div className="px-8 mb-4">
-              <div className="divider divider-secondary mb-10 text-xs font-bold text-white">
+            <div className="px-8 pb-4">
+              <div className="divider divider-secondary mb-6 text-xs font-bold text-white">
                 OR
               </div>
-              <div className="relative">
+              <div className="flex flex-col gap-2 mb-4">
                 <button
                   onClick={handleGoogleLogin}
-                  className="btn btn-secondary w-full text-base capitalize"
+                  className="btn btn-outline btn-secondary w-full text-base capitalize flex items-center justify-center gap-2"
                 >
                   <FaGoogle></FaGoogle> Continue with Google
                 </button>
-                <img
-                  className="w-8 top-2 left-4 absolute"
-                  src="/google.png"
-                  alt=""
-                />
               </div>
             </div>
           </div>

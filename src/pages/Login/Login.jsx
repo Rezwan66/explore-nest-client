@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import authBg from '../../assets/banner/login.jpg';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useState } from 'react';
 
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();
@@ -11,10 +12,24 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleDemoLogin = (role) => {
+    if (role === 'admin') {
+      setEmail('admin@explorenest.com');
+      setPassword('Admin123!');
+    } else if (role === 'guide') {
+      setEmail('guide@explorenest.com');
+      setPassword('Guide123!');
+    } else {
+      setEmail('user@explorenest.com');
+      setPassword('User123!');
+    }
+  };
+
   const handleLogin = e => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
     // reset the form
     e.currentTarget.reset();
 
@@ -57,7 +72,7 @@ const Login = () => {
             <h1 className="text-3xl font-bold text-center tracking-widest">
               Login now!
             </h1>
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleLogin} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-xs font-bold">Email</span>
@@ -65,6 +80,8 @@ const Login = () => {
                 <input
                   type="email"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
                   className="input input-bordered"
                   required
@@ -77,6 +94,8 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Your password"
                   className="input input-bordered"
                   required
@@ -86,7 +105,7 @@ const Login = () => {
                     Not a member?{' '}
                     <Link
                       to="/register"
-                      className="text-[#f50057] text-base font-bold uppercase"
+                      className="text-primary text-base font-bold uppercase"
                     >
                       Register
                     </Link>
@@ -96,28 +115,29 @@ const Login = () => {
               <div className="form-control mt-6">
                 <button
                   type="submit"
-                  className="btn btn-error text-white text-base"
+                  className="btn btn-primary text-white text-base"
                 >
                   Login
                 </button>
               </div>
             </form>
-            <div className="px-8 mb-4">
-              <div className="divider divider-secondary mb-10 text-xs font-bold">
+            <div className="px-8 pb-4">
+              <div className="divider divider-secondary mb-6 text-xs font-bold">
                 OR
               </div>
-              <div className="relative">
+              <div className="flex flex-col gap-2 mb-4">
                 <button
                   onClick={handleGoogleLogin}
-                  className="btn btn-secondary w-full text-base capitalize"
+                  className="btn btn-outline btn-secondary w-full text-base capitalize flex items-center justify-center gap-2"
                 >
                   <FaGoogle></FaGoogle> Continue with Google
                 </button>
-                <img
-                  className="w-8 top-2 left-4 absolute"
-                  src="/google.png"
-                  alt=""
-                />
+              </div>
+              <div className="divider text-xs font-bold mt-0 mb-4">Demo Logins</div>
+              <div className="grid grid-cols-3 gap-2">
+                <button onClick={() => handleDemoLogin('admin')} className="btn btn-sm btn-accent text-xs">Admin</button>
+                <button onClick={() => handleDemoLogin('guide')} className="btn btn-sm btn-primary text-xs">Guide</button>
+                <button onClick={() => handleDemoLogin('user')} className="btn btn-sm btn-secondary text-xs">User</button>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTopOnNavigation from '../utilities/ScrollToTopOnNavigation';
+import AIChatbot from '../components/AIChatbot/AIChatbot';
 // import bg from '../assets/background/rose-petals (1).png';
 
 const MainLayout = () => {
@@ -9,7 +10,7 @@ const MainLayout = () => {
   // console.log(location.pathname);
   return (
     <div
-      className="min-h-screen bg-pink-50"
+      className="min-h-screen"
       //   style={{
       //     backgroundImage: `url('${bg}')`,
       //     backgroundRepeat: 'no-repeat',

@@ -6,33 +6,47 @@ const NavLinks = () => {
   return (
     <>
       <li>
-        <Link className="hover:text-error" to="/">
+        <Link className="hover:text-primary transition" to="/">
           Home
         </Link>
       </li>
       <li>
-        <Link className="hover:text-error" to="/community">
-          Community
+        <Link className="hover:text-primary transition" to="/allPackages">
+          Explore
         </Link>
       </li>
       <li>
-        <Link className="hover:text-error" to="/blogs">
+        <Link className="hover:text-primary transition" to="/blogs">
           Blogs
         </Link>
       </li>
       <li>
-        <Link className="hover:text-error" to="/aboutUs">
-          About Us
-        </Link>
-      </li>
-      <li>
-        <Link className="hover:text-error" to="/contactUs">
+        <Link className="hover:text-primary transition" to="/contactUs">
           Contact Us
         </Link>
       </li>
+      {user && (
+        <>
+          <li>
+            <Link className="hover:text-primary transition" to="/stories">
+              Stories
+            </Link>
+          </li>
+          <li>
+            <Link className="hover:text-primary transition" to="/community">
+              Community
+            </Link>
+          </li>
+          <li>
+            <Link className="hover:text-primary transition" to="/dashboard">
+              Dashboard
+            </Link>
+          </li>
+        </>
+      )}
       {!user && (
         <li>
-          <Link className="hover:text-error" to="/login">
+          <Link className="hover:text-primary transition" to="/login">
             Login/Register
           </Link>
         </li>

@@ -8,9 +8,8 @@ const CategoriesSection = () => {
   return (
     <div className="my-14">
       <Container>
-        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
-          {' '}
-          Browse by Tour Types{' '}
+        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-primary text-center tracking-wide">
+          Browse by Tour Types
         </h2>
       </Container>
       <div className="cat-tab bg-fixed py-40 mt-2">

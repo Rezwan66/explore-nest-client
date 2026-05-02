@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/png/logo-no-background.png';
 import NavLinks from './NavLinks';
 import Dropdown from './Dropdown';
-
+import ThemeToggle from './ThemeToggle';
 const Navbar = () => {
   return (
-    <div className="bg-transparent py-2">
+    <div className="fixed w-full z-50 top-0 bg-base-100/80 backdrop-blur-md shadow-sm py-2">
       <div className=" mx-auto md:px-10 lg:px-16 px-4">
         <div className="navbar bg-transparent px-0">
           <div className="navbar-start">
@@ -45,6 +45,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
+            <ThemeToggle />
             <Dropdown></Dropdown>
           </div>
         </div>

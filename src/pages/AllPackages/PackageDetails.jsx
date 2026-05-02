@@ -28,6 +28,23 @@ const PackageDetails = () => {
   const { _id, photo, tourType, tripTitle, price, gallery, about, tourPlan } =
     loadedPackage || {};
 
+  // Track viewing history for personalized recommendations
+  useEffect(() => {
+    if (tourType) {
+      const storedCategories = localStorage.getItem('viewedCategories');
+      let preferredCategories = storedCategories ? JSON.parse(storedCategories) : [];
+      
+      if (!preferredCategories.includes(tourType)) {
+        preferredCategories.push(tourType);
+        // Keep only the 5 most recent categories to avoid bloat
+        if (preferredCategories.length > 5) {
+          preferredCategories.shift();
+        }
+        localStorage.setItem('viewedCategories', JSON.stringify(preferredCategories));
+      }
+    }
+  }, [tourType]);
+
   const handleSubmit = e => {
     e.preventDefault();
     const touristName = e.target.touristName.value;
@@ -91,202 +108,140 @@ const PackageDetails = () => {
   };
 
   return (
-    <div>
-      <div className="my-14">
-        <Container>
-          <div className="flex flex-col items-center gap-4 justify-center">
-            <h2 className="md:text-4xl text-2xl font-semibold text-error text-center">
-              {tripTitle}
-            </h2>
-            <div className="z-50 whitespace-normal break-words rounded-lg bg-pink-500 py-1 px-3 font-sans text-xs font-medium text-white focus:outline-none w-fit cursor-pointer mb-8">
-              <span className="uppercase tracking-widest">{tourType}</span>
-            </div>
+    <div className="bg-base-100 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative h-[60vh] w-full">
+        <img
+          className="h-full w-full object-cover brightness-50"
+          src={photo}
+          alt={tripTitle}
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <div className="mb-4">
+            <span className="badge badge-primary badge-lg uppercase tracking-widest text-white border-none shadow-md">
+              {tourType}
+            </span>
           </div>
-          {/* gallery section */}
-          <div className="grid gap-4">
-            <div>
-              <img
-                className="lg:h-96 md:h-72 h-52 w-full rounded-lg object-cover"
-                src={photo}
-                alt=""
-              />
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {gallery?.map((item, idx) => (
-                <div key={idx}>
-                  <img
-                    className="lg:h-40 md:h-28 h-14 w-full rounded-lg object-cover"
-                    src={item}
-                    alt=""
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* about */}
-          <h2 className="md:text-xl text-sm font-medium italic my-10 text-slate-600">
-            <FaQuoteLeft></FaQuoteLeft>
-            {about}
-          </h2>
-          {/* tour plan */}
-          <div className="my-10">
-            {/* mui accordion */}
-            <h2 className="md:text-2xl text-base text-[#f50057] tracking-widest font-bold mb-6">
-              Trip Itinerary:
-            </h2>
-            <CustomizedAccordions tourPlan={tourPlan}></CustomizedAccordions>
-          </div>
-        </Container>
-        {/* tour guides */}
-        <div className="guide-bg bg-fixed my-10 py-20">
-          <Container>
-            <h2 className="md:text-3xl text-base text-white italic text-center tracking-widest font-bold mb-6">
-              Our Guides:
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {tourGuides?.map(guide => (
-                <GuideProfileCard
-                  key={guide._id}
-                  guide={guide}
-                ></GuideProfileCard>
-              ))}
-            </div>
-          </Container>
-        </div>
-        {/* booking form */}
-        <div className="my-10">
-          {/* TODO: booking form */}
-          <Container>
-            <div className="card w-full p-8 shadow-2xl bg-[#f9c8d9]">
-              <div className="text-center">
-                <h1 className="text-lg md:text-3xl mb-8 font-bold text-[#f50057]">
-                  Book Package : {tripTitle}
-                </h1>
-              </div>
-              <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* tourist name */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Your Full Name
-                      </span>
-                    </label>
-                    <input
-                      type="text"
-                      name="touristName"
-                      className="input input-bordered"
-                      defaultValue={user?.displayName}
-                    />
-                  </div>
-                  {/* tourist email */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Your Email
-                      </span>
-                    </label>
-                    <input
-                      type="text"
-                      className="input input-bordered"
-                      required
-                      defaultValue={user?.email}
-                      readOnly
-                    />
-                  </div>
-                  {/* tourist image */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Profile Pic
-                      </span>
-                    </label>
-                    <input
-                      type="text"
-                      defaultValue={user?.photoURL}
-                      readOnly
-                      className="input input-bordered"
-                      disabled
-                    />
-                  </div>
-                  {/* price */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Package Price (in dollars $)
-                      </span>
-                    </label>
-                    <input
-                      type="text"
-                      defaultValue={price}
-                      readOnly
-                      className="input input-bordered"
-                    />
-                  </div>
-                  {/* date react-datepicker */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Pick a trip date
-                      </span>
-                    </label>
-                    {/* <input
-                      type="number"
-                      name="date"
-                      className="input input-bordered"
-                      required
-                    /> */}
-                    <DatePicker
-                      className="input input-bordered w-full"
-                      showIcon
-                      dateFormat="dd/MM/yyyy"
-                      selected={startDate}
-                      onChange={date => setStartDate(date)}
-                      // inline
-                    />
-                  </div>
-                  {/* guide name dropdown */}
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-xs font-bold">
-                        Pick a Guide
-                      </span>
-                    </label>
-                    {/* <input
-                      type="text"
-                      name="guide"
-                      className="input input-bordered"
-                    /> */}
-                    <select
-                      defaultValue="no choice"
-                      className="select select-bordered"
-                      name="guideName"
-                      required
-                    >
-                      <option disabled value="no choice">
-                        Select a guide
-                      </option>
-                      {tourGuides?.map(guide => (
-                        <option key={guide._id} value={guide.name}>
-                          {guide?.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                {/* submit btn */}
-                <div className="form-control mt-10">
-                  <input
-                    className="btn btn-secondary btn-block text-white"
-                    type="submit"
-                    value="Book Package"
-                  />
-                </div>
-              </form>
-            </div>
-          </Container>
+          <h1 className="text-4xl md:text-6xl font-black text-white drop-shadow-lg tracking-wider mb-6">
+            {tripTitle}
+          </h1>
+          <p className="text-3xl font-bold text-secondary drop-shadow-md bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full">
+            ${price}
+          </p>
         </div>
       </div>
+
+      <Container>
+        <div className="py-14 grid grid-cols-1 lg:grid-cols-3 gap-12">
+          
+          {/* Main Content (Left) */}
+          <div className="col-span-1 lg:col-span-2 space-y-12">
+            
+            {/* Gallery Section */}
+            {gallery?.length > 0 && (
+              <section>
+                <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Tour Gallery</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {gallery?.map((item, idx) => (
+                    <div key={idx} className="overflow-hidden rounded-xl h-32 md:h-40">
+                      <img
+                        className="h-full w-full object-cover hover:scale-110 transition-transform duration-500 cursor-pointer"
+                        src={item}
+                        alt={`Gallery ${idx}`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Overview Section */}
+            <section>
+              <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Overview</h3>
+              <div className="bg-base-200 p-8 rounded-2xl border border-base-300 relative">
+                <FaQuoteLeft className="text-4xl text-primary/20 absolute top-4 left-4" />
+                <p className="text-base-content/80 leading-relaxed relative z-10 italic pl-6 text-lg">
+                  {about}
+                </p>
+              </div>
+            </section>
+
+            {/* Itinerary Section */}
+            <section>
+              <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Trip Itinerary</h3>
+              <div className="bg-base-100 rounded-2xl overflow-hidden shadow-sm border border-base-200">
+                <CustomizedAccordions tourPlan={tourPlan}></CustomizedAccordions>
+              </div>
+            </section>
+
+            {/* Guides Section */}
+            <section>
+              <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Meet Our Guides</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {tourGuides?.slice(0, 3).map(guide => (
+                  <GuideProfileCard
+                    key={guide._id}
+                    guide={guide}
+                  ></GuideProfileCard>
+                ))}
+              </div>
+            </section>
+
+          </div>
+
+          {/* Sidebar / Booking Form (Right) */}
+          <div className="col-span-1">
+            <div className="sticky top-24 bg-base-200 p-8 rounded-3xl shadow-xl border border-base-300">
+              <h3 className="text-2xl font-bold text-primary text-center mb-2">Book This Tour</h3>
+              <p className="text-center text-sm text-gray-500 mb-8">Secure your spot today.</p>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="form-control">
+                  <label className="label"><span className="label-text font-semibold">Full Name</span></label>
+                  <input type="text" name="touristName" className="input input-bordered bg-base-100 rounded-xl" defaultValue={user?.displayName} required />
+                </div>
+                
+                <div className="form-control">
+                  <label className="label"><span className="label-text font-semibold">Email</span></label>
+                  <input type="email" className="input input-bordered bg-base-100 rounded-xl text-gray-500" defaultValue={user?.email} readOnly />
+                </div>
+
+                <div className="form-control">
+                  <label className="label"><span className="label-text font-semibold">Price ($)</span></label>
+                  <input type="text" className="input input-bordered bg-base-100 rounded-xl text-primary font-bold text-lg" defaultValue={price} readOnly />
+                </div>
+
+                <div className="form-control">
+                  <label className="label"><span className="label-text font-semibold">Trip Date</span></label>
+                  <DatePicker
+                    className="input input-bordered w-full bg-base-100 rounded-xl"
+                    showIcon
+                    dateFormat="dd/MM/yyyy"
+                    selected={startDate}
+                    onChange={date => setStartDate(date)}
+                    minDate={new Date()}
+                  />
+                </div>
+
+                <div className="form-control mb-6">
+                  <label className="label"><span className="label-text font-semibold">Select Guide</span></label>
+                  <select defaultValue="no choice" className="select select-bordered bg-base-100 rounded-xl" name="guideName" required>
+                    <option disabled value="no choice">Select your guide</option>
+                    {tourGuides?.map(guide => (
+                      <option key={guide._id} value={guide.name}>{guide?.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <button type="submit" className="btn btn-primary btn-block rounded-xl text-white font-bold text-lg uppercase tracking-widest shadow-lg hover:shadow-primary/50 transition-shadow">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </Container>
     </div>
   );
 };

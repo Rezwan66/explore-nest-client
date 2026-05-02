@@ -26,7 +26,7 @@ const Dashboard = () => {
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-        <div className="drawer-content min-h-screen flex flex-col items-center justify-start bg-pink-50">
+        <div className="drawer-content min-h-screen flex flex-col items-center justify-start bg-base-200">
           {/* Page content here */}
           <label
             htmlFor="my-drawer-2"
@@ -42,7 +42,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu text-lg p-4 w-80 min-h-screen bg-pink-200 text-base-content">
+          <ul className="menu text-lg p-4 w-80 min-h-screen bg-base-100 text-base-content shadow-xl border-r border-base-300">
             {/* logo+website name */}
             <div className="flex items-center justify-center gap-4 mb-8">
               <Link to="/dashboard">
@@ -57,14 +57,19 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
-            {/* Sidebar content here */}
             {/* admin content */}
             {isAdmin && (
               <>
                 <li>
+                  <NavLink to="/dashboard" end>
+                    <FaHouseUser />
+                    Admin Dashboard
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/dashboard/userProfile">
                     <FaUserAlt />
-                    My Profile
+                    Admin Profile
                   </NavLink>
                 </li>
                 <li>
@@ -77,6 +82,12 @@ const Dashboard = () => {
                   <NavLink to="/dashboard/manageUsers">
                     <FaUsers />
                     Manage Users
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageBookings">
+                    <FaList />
+                    Manage Bookings
                   </NavLink>
                 </li>
               </>
@@ -110,19 +121,13 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/userBookings">
                     <FaCalendarAlt />
-                    My Bookings
+                    My Bookings & Payments
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/dashboard/userWishlist">
                     <FaHeart />
                     My Wishlist
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/userPayments">
-                    <FaMoneyBill />
-                    My Payments
                   </NavLink>
                 </li>
               </>

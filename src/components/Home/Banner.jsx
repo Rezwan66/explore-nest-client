@@ -31,75 +31,75 @@ const Banner = () => {
       >
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b1}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b2}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b3}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b4}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b5}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="brightness-50 md:h-[500px] h-80 w-full"
+            className="brightness-50 object-cover h-[60vh] md:h-[70vh] w-full"
             src={b6}
             alt=""
           />
         </SwiperSlide>
       </Swiper>
-      <h2 className="absolute top-20 md:left-20 left-10 z-10 text-white">
-        <span className="text-info text-4xl md:text-5xl font-bold md:tracking-widest">
-          ExploreNest:
-        </span>
-        <br />
-        <br />
-        <span className="text-xs md:text-lg font-medium text-white">
-          Your Gateway{' '}
-          <Typewriter
-            words={['to Limitless Adventures!']}
-            loop={0}
-            cursor
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          ></Typewriter>
-        </span>
-        <br />
-        <br />
-        <span>
+      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 pointer-events-none">
+        <h2 className="text-white">
+          <span className="text-primary text-4xl md:text-6xl font-bold tracking-wider drop-shadow-lg">
+            ExploreNest
+          </span>
+          <br />
+          <br />
+          <span className="text-sm md:text-2xl font-medium text-white drop-shadow-md">
+            Your Gateway{' '}
+            <Typewriter
+              words={['to Limitless Adventures!', 'to Unforgettable Memories!', 'to Discover the World!']}
+              loop={0}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            ></Typewriter>
+          </span>
+        </h2>
+        <div className="mt-8 pointer-events-auto">
           <Link to="/allPackages">
-            <button className="btn md:btn-block btn-secondary uppercase md:mt-40 mt-6">
+            <button className="btn btn-primary px-8 text-white uppercase font-bold tracking-wide rounded-full shadow-lg hover:scale-105 transition-transform">
               Book Today
             </button>
           </Link>
-        </span>
-      </h2>
+        </div>
+      </div>
     </div>
   );
 };

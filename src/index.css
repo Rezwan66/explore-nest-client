@@ -6,4 +6,9 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+  @apply transition-colors duration-300 ease-in-out antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -1,61 +1,70 @@
 import { Link } from 'react-router-dom';
 import Container from '../Container';
 import logo from '../../assets/logo/png/footerLogo.png';
-// import { Button, TextField } from '@mui/material';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 import './Footer.css';
 
 const Footer = () => {
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    toast.success('Thanks for subscribing!');
+    e.target.reset();
+  }
+
   return (
-    <footer className="footer-bg bg-fixed py-24 text-white">
+    <footer className="footer-bg bg-fixed pt-24 pb-10 relative">
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
       <Container>
-        <div className="footer bg-slate-500 bg-opacity-60 glass py-10 px-4 rounded-md">
-          <nav className="w-full flex justify-center items-center">
-            <Link to="/">
-              <img src={logo} className="w-28 md:mr-0 mr-16" alt="" />
-            </Link>
-          </nav>
-
-          <nav className="w-full flex flex-col justify-center">
-            <header className="footer-title">Company</header>
-            <button className="link link-hover">About us</button>
-            <button className="link link-hover">Contact</button>
-            <button className="link link-hover">Jobs</button>
-            <button className="link link-hover">Press kit</button>
-          </nav>
-          <nav className="w-full  flex flex-col justify-center">
-            <header className="footer-title">Legal</header>
-            <button className="link link-hover">Terms of use</button>
-            <button className="link link-hover">Privacy policy</button>
-            <button className="link link-hover">Cookie policy</button>
-          </nav>
-
-          <form className="">
-            <header className="footer-title md:text-left text-center">
-              Newsletter
-            </header>
-            <fieldset className="form-control w-80">
-              <label className="label">
-                <span className="label-text mb-4 text-white">
-                  Enter your email address
-                </span>
-              </label>
-              <div className="join">
-                <input
-                  type="text"
-                  placeholder="username@site.com"
-                  className="input input-bordered join-item text-black md:w-full w-32"
-                />
-                {/* <TextField
-                  sx={{ color: '#fff' }}
-                  id="outlined-basic"
-                  label="email@gmail.com"
-                  variant="outlined"
-                />
-                <Button variant="contained">Subscribe</Button> */}
-                <button className="btn btn-primary join-item">Subscribe</button>
+        <div className="relative z-10">
+          <div className="footer bg-base-300/80 backdrop-blur-md border border-white/10 py-10 px-8 rounded-2xl flex flex-col md:flex-row justify-between flex-wrap gap-10">
+            <nav className="flex flex-col gap-4">
+              <Link to="/">
+                <img src={logo} className="w-32" alt="Explore Nest Logo" />
+              </Link>
+              <p className="text-sm max-w-xs mt-2">
+                ExploreNest is your ultimate travel partner, providing seamless and unforgettable adventures across the globe.
+              </p>
+              <div className="flex gap-4 mt-4">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-2xl hover:text-primary transition"><FaFacebook /></a>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-2xl hover:text-primary transition"><FaTwitter /></a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-2xl hover:text-primary transition"><FaInstagram /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-2xl hover:text-primary transition"><FaLinkedin /></a>
               </div>
-            </fieldset>
-          </form>
+            </nav>
+
+            <nav className="flex flex-col gap-2">
+              <header className="text-lg font-bold text-primary mb-2">Company</header>
+              <Link to="/aboutUs" className="link link-hover">About us</Link>
+              <Link to="/contactUs" className="link link-hover">Contact</Link>
+              <Link to="/blogs" className="link link-hover">Blogs</Link>
+              <Link to="/community" className="link link-hover">Community</Link>
+            </nav>
+            
+            <nav className="flex flex-col gap-2">
+              <header className="text-lg font-bold text-primary mb-2">Legal</header>
+              <Link to="/privacy" className="link link-hover">Terms of use</Link>
+              <Link to="/privacy" className="link link-hover">Privacy policy</Link>
+              <Link to="/help" className="link link-hover">Help & Support</Link>
+            </nav>
+
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
+              <header className="text-lg font-bold text-primary mb-2">Newsletter</header>
+              <p className="text-sm mb-2">Stay up to date with our latest news.</p>
+              <div className="join w-full max-w-sm">
+                <input
+                  type="email"
+                  placeholder="email@site.com"
+                  className="input input-bordered join-item w-full"
+                  required
+                />
+                <button type="submit" className="btn btn-primary join-item">Subscribe</button>
+              </div>
+            </form>
+          </div>
+          <div className="text-center mt-10 border-t border-white/20 pt-6 text-sm text-white">
+            <p>&copy; {new Date().getFullYear()} ExploreNest. All rights reserved.</p>
+          </div>
         </div>
       </Container>
     </footer>

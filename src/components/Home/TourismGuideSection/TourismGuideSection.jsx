@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Container from '../../Container';
@@ -11,13 +12,14 @@ import GuideProfileCard from '../../Shared/GuideProfileCard';
 const TourismGuideSection = () => {
   const { packages } = usePackages();
   const { tourGuides } = useTourGuides();
+  const [showAllGuides, setShowAllGuides] = useState(false);
+
   // console.log(packages, tourGuides);
   return (
     <div className="my-14">
       <Container>
-        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
-          {' '}
-          Follow our Tour Guide{' '}
+        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-primary text-center tracking-wide">
+          Follow our Tour Guide
         </h2>
       </Container>
       <Tabs>
@@ -77,7 +79,7 @@ const TourismGuideSection = () => {
               </div>
               <div className="flex justify-center mt-8">
                 <Link to="/allPackages">
-                  <button className="btn btn-wide btn-secondary">
+                  <button className="btn btn-wide btn-primary text-white">
                     Show All
                   </button>
                 </Link>
@@ -86,16 +88,26 @@ const TourismGuideSection = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="video-tab bg-fixed py-20 mt-2">
+          <div className="video-tab bg-fixed py-6 mt-2">
             <Container>
               <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                {tourGuides?.map(guide => (
+                {(showAllGuides ? tourGuides : tourGuides?.slice(0, 6))?.map(guide => (
                   <GuideProfileCard
                     key={guide._id}
                     guide={guide}
                   ></GuideProfileCard>
                 ))}
               </div>
+              {tourGuides?.length > 6 && (
+                <div className="flex justify-center mt-8">
+                  <button 
+                    className="btn btn-wide btn-primary text-white"
+                    onClick={() => setShowAllGuides(!showAllGuides)}
+                  >
+                    {showAllGuides ? 'Show Less' : 'Show All'}
+                  </button>
+                </div>
+              )}
             </Container>
           </div>
         </TabPanel>

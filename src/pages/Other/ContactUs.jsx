@@ -39,20 +39,24 @@ const ContactUs = () => {
 
       <div className="mt-14 mb-40">
         <Container>
-          <h2 className="md:text-4xl text-2xl font-semibold mb-6 text-error text-center">
-            {' '}
-            Contact Us{' '}
-          </h2>
+          <div className="flex flex-col items-center mb-10">
+            <h2 className="md:text-4xl text-2xl font-semibold text-primary text-center tracking-wide mb-2">
+              Contact Us
+            </h2>
+            <p className="text-gray-500 max-w-2xl text-center">
+              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            </p>
+          </div>
           <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div className="mt-8 overflow-hidden">
+            <div className="mt-8 overflow-hidden bg-base-200 rounded-3xl shadow-lg border border-base-300">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="p-6 mr-2 sm:rounded-lg">
-                  <p className="text-normal italic font-medium mt-2">
+                <div className="p-8 mr-2 sm:rounded-lg">
+                  <p className="text-normal italic font-medium mt-2 text-gray-600">
                     Have questions or want to start your travel journey? Fill
                     out the form to get in touch with us.
                   </p>
 
-                  <div className="flex items-center mt-8 text-pink-600">
+                  <div className="flex items-center mt-8 text-primary">
                     <svg
                       fill="none"
                       stroke="currentColor"
@@ -60,7 +64,7 @@ const ContactUs = () => {
                       strokeLinejoin="round"
                       strokeWidth="1.5"
                       viewBox="0 0 24 24"
-                      className="w-8 h-8 text-pink-600"
+                      className="w-8 h-8 text-primary"
                     >
                       <path
                         strokeLinecap="round"
@@ -76,11 +80,11 @@ const ContactUs = () => {
                       />
                     </svg>
                     <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                      Explore Next GmbH, Dhaka.
+                      Explore Nest GmbH, Dhaka.
                     </div>
                   </div>
 
-                  <div className="flex items-center mt-4 text-pink-600">
+                  <div className="flex items-center mt-4 text-primary">
                     <svg
                       fill="none"
                       stroke="currentColor"
@@ -88,7 +92,7 @@ const ContactUs = () => {
                       strokeLinejoin="round"
                       strokeWidth="1.5"
                       viewBox="0 0 24 24"
-                      className="w-8 h-8 text-pink-600"
+                      className="w-8 h-8 text-primary"
                     >
                       <path
                         strokeLinecap="round"
@@ -102,7 +106,7 @@ const ContactUs = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center mt-4 text-pink-600">
+                  <div className="flex items-center mt-4 text-primary">
                     <svg
                       fill="none"
                       stroke="currentColor"
@@ -110,7 +114,7 @@ const ContactUs = () => {
                       strokeLinejoin="round"
                       strokeWidth="1.5"
                       viewBox="0 0 24 24"
-                      className="w-8 h-8 text-pink-600"
+                      className="w-8 h-8 text-primary"
                     >
                       <path
                         strokeLinecap="round"
@@ -209,8 +213,8 @@ const ContactUs = () => {
                   />
                   <input
                     type="submit"
-                    value="Send"
-                    className="md:w-32 bg-indigo-600 cursor-pointer hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300"
+                    value="Send Message"
+                    className="btn btn-primary w-full md:w-auto mt-4 rounded-xl shadow-lg"
                   />
                 </form>
               </div>

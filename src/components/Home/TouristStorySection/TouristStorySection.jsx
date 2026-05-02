@@ -12,9 +12,8 @@ const TouristStorySection = () => {
   return (
     <div className="my-14">
       <Container>
-        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-error text-center">
-          {' '}
-          Tourist Stories{' '}
+        <h2 className="md:text-4xl text-2xl font-semibold mb-10 text-primary text-center tracking-wide">
+          Tourist Stories
         </h2>
 
         <div>
@@ -70,7 +69,7 @@ const TouristStorySection = () => {
           </Swiper>
           <div className="flex justify-center mt-8">
             <Link to="/stories">
-              <button className="btn btn-wide btn-secondary">Show All</button>
+              <button className="btn btn-wide btn-primary text-white">Show All</button>
             </Link>
           </div>
         </div>

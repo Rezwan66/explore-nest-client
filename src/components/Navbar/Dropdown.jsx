@@ -30,7 +30,7 @@ const Dropdown = () => {
     <div className="relative">
       <div
         onClick={handleDropdownClick}
-        className="border-2 p-1 border-red-100 rounded-full cursor-pointer hover:shadow-md transition"
+        className="border-2 p-1 border-primary rounded-full cursor-pointer hover:shadow-md transition"
       >
         <img
           className="rounded-full w-9 h-9 object-cover"
@@ -41,30 +41,29 @@ const Dropdown = () => {
       </div>
 
       {isOpen && user && (
-        <div className="bg-base-100 absolute rounded-md shadow-xl w-[42vw] md:w-[24vw] lg:w-[14vw] overflow-hidden right-0 top-14 text-sm z-50">
+        <div className="bg-base-100 absolute rounded-md shadow-xl w-[42vw] md:w-[24vw] lg:w-[14vw] overflow-hidden right-0 top-14 text-sm z-50 border border-base-200">
           <div className="flex flex-col cursor-pointer">
-            <div className="px-4 py-3 transition">
+            <div className="px-4 py-3 transition border-b border-base-200">
               <h2 className="font-bold">{user?.displayName}</h2>
-              <p className="text-xs">{user?.email}</p>
+              <p className="text-xs truncate">{user?.email}</p>
             </div>
             <Link
               to="/dashboard"
-              className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              className="px-4 py-3 hover:bg-primary hover:text-white transition font-semibold"
             >
               Dashboard
             </Link>
 
             <Link
               to="/dashboard/userBookings"
-              className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              className="px-4 py-3 hover:bg-primary hover:text-white transition font-semibold"
             >
               Offers
             </Link>
             <div
               onClick={handleLogout}
-              className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              className="px-4 py-3 hover:bg-error hover:text-white transition font-semibold"
             >
-              {/* <button onClick={handleLogout}>Logout</button> */}
               Logout
             </div>
           </div>
