@@ -20,6 +20,7 @@ const MainLayout = () => {
       <ScrollToTopOnNavigation></ScrollToTopOnNavigation>
       <Navbar></Navbar>
       <Outlet></Outlet>
+      <AIChatbot></AIChatbot>
       <Footer></Footer>
     </div>
   );
