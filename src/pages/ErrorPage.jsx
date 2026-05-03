@@ -1,30 +1,21 @@
 import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router-dom';
 import anim404 from '../assets/animations/Animation404.json';
 import Container from '../components/Container';
 
 const ErrorPage = () => {
+  const error = useRouteError();
+  console.error("Router Error Caught in ErrorPage:", error);
+
   return (
-    // <div
-    //   className="relative flex justify-center"
-    //   //   style={{
-    //   //     backgroundImage: `url('${errorBg}')`,
-    //   //     backgroundRepeat: 'no-repeat',
-    //   //     backgroundSize: 'cover',
-    //   //   }}
-    // >
-    //   <img className="h-screen w-screen object-cover" src={errorBg} alt="" />
-    //   <Link to="/" className="btn btn-secondary lg:mt-[570px] mt-72 absolute">
-    //     Go Back to the HomePage
-    //   </Link>
-    // </div>
     <div className="h-screen  bg-[#1A2238] ">
       <Container>
         <div className="flex flex-col-reverse md:flex-row items-center justify-center h-screen">
           <div className="max-w-[600px] mx-auto">
             <Lottie animationData={anim404} loop={true}></Lottie>
           </div>
-          <div className="w-full flex flex-col justify-center items-center ">
+          <div className="w-full flex flex-col justify-center items-center text-center">
+            <p className="text-red-500 font-bold mb-4">{error?.message || error?.statusText || "Unknown Error"}</p>
             <h1 className="text-9xl font-extrabold text-white tracking-widest">
               404
             </h1>

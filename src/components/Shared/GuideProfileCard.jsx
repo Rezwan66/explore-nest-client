@@ -4,7 +4,7 @@ import { FaEye } from 'react-icons/fa';
 const GuideProfileCard = ({ guide }) => {
   const { _id, photo, name, contact } = guide || {};
   return (
-    <div className="relative group cursor-pointer flex flex-col p-4 text-gray-700 bg-transparent rounded-xl bg-clip-border">
+    <div className="relative group cursor-pointer flex flex-col p-4 bg-transparent rounded-xl bg-clip-border">
       <div className="flex justify-center relative rounded-full  text-gray-700 bg-clip-border">
         <img
           className="rounded-full h-32 w-32 object-cover group-hover:scale-110 transition"
@@ -13,10 +13,10 @@ const GuideProfileCard = ({ guide }) => {
         />
       </div>
       <div className="text-center">
-        <h4 className="block my-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-white">
+        <h4 className="block my-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-primary">
           {name.split(' ')[0]}
         </h4>
-        <p className="block font-sans text-base antialiased font-medium leading-relaxed text-white italic bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
+        <p className="block font-sans text-base antialiased font-medium leading-relaxed italic bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
           {contact}
         </p>
       </div>

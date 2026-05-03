@@ -7,7 +7,7 @@ import GuideProfileCard from '../../components/Shared/GuideProfileCard';
 import './PackageDetails.css';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
@@ -160,7 +160,7 @@ const PackageDetails = () => {
               <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Overview</h3>
               <div className="bg-base-200 p-8 rounded-2xl border border-base-300 relative">
                 <FaQuoteLeft className="text-4xl text-primary/20 absolute top-4 left-4" />
-                <p className="text-base-content/80 leading-relaxed relative z-10 italic pl-6 text-lg">
+                <p className="text-base-content/80 leading-relaxed relative z-10 italic pl-8 text-lg">
                   {about}
                 </p>
               </div>
@@ -169,7 +169,7 @@ const PackageDetails = () => {
             {/* Itinerary Section */}
             <section>
               <h3 className="text-2xl font-bold text-primary mb-6 border-b-2 border-primary/20 pb-2">Trip Itinerary</h3>
-              <div className="bg-base-100 rounded-2xl overflow-hidden shadow-sm border border-base-200">
+              <div className="bg-base-100 rounded-2xl overflow-hidden shadow-sm">
                 <CustomizedAccordions tourPlan={tourPlan}></CustomizedAccordions>
               </div>
             </section>

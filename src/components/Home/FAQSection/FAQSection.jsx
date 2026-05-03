@@ -39,7 +39,7 @@ const FAQSection = () => {
                 {faq.q}
               </div>
               <div className="collapse-content">
-                <p className="text-gray-600 dark:text-gray-400">{faq.a}</p>
+                <p className="text-gray-500">{faq.a}</p>
               </div>
             </div>
           ))}
