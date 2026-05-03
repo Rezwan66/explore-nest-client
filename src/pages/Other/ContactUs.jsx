@@ -80,7 +80,7 @@ const ContactUs = () => {
                       />
                     </svg>
                     <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                      Explore Nest GmbH, Dhaka.
+                      Explore Nest GmbH, Berlin, Germany
                     </div>
                   </div>
 
@@ -190,7 +190,7 @@ const ContactUs = () => {
                     name="from_name"
                     id="name"
                     placeholder="Full Name"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 dark:border-gray-700 font-semibold focus:border-indigo-500 focus:outline-none"
                   />
                   <label htmlFor="email" className="hidden">
                     Email
@@ -200,7 +200,7 @@ const ContactUs = () => {
                     id="email"
                     name="from_email"
                     placeholder="Email"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 dark:border-gray-700 font-semibold focus:border-indigo-500 focus:outline-none"
                   />
                   <label htmlFor="mess" className="hidden">
                     Number
@@ -209,7 +209,7 @@ const ContactUs = () => {
                     id="mess"
                     name="message"
                     placeholder="Your Message"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 dark:border-gray-700 font-semibold focus:border-indigo-500 focus:outline-none"
                   />
                   <input
                     type="submit"

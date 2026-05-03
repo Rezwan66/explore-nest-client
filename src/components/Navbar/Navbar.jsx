@@ -35,8 +35,11 @@ const Navbar = () => {
               </ul>
             </div>
             {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
-            <Link to="/">
-              <img src={logo} className="w-32 rounded-3xl" alt="" />
+            <Link to="/" className="flex items-center gap-2 group">
+              <img src="/icons8-nest-96.png" className="w-10 h-10 group-hover:scale-110 transition-transform" alt="Nest Icon" />
+              <span className="text-2xl font-black tracking-tight text-base-content">
+                Explore<span className="text-primary">Nest</span>
+              </span>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

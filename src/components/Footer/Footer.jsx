@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Container from '../Container';
 import logo from '../../assets/logo/png/footerLogo.png';
+import logo2 from '../../../public/icons8-nest-96.png'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import './Footer.css';
@@ -19,8 +20,11 @@ const Footer = () => {
         <div className="relative z-10">
           <div className="footer bg-base-300/80 backdrop-blur-md border border-white/10 py-10 px-8 rounded-2xl flex flex-col md:flex-row justify-between flex-wrap gap-10">
             <nav className="flex flex-col gap-4">
-              <Link to="/">
-                <img src={logo} className="w-32" alt="Explore Nest Logo" />
+              <Link to="/" className="flex items-center gap-2 group mb-2">
+                <img src="/icons8-nest-96.png" className="w-12 h-12 group-hover:scale-110 transition-transform" alt="Nest Icon" />
+                <span className="text-3xl font-black tracking-tight text-base-content">
+                  Explore<span className="text-primary">Nest</span>
+                </span>
               </Link>
               <p className="text-sm max-w-xs mt-2">
                 ExploreNest is your ultimate travel partner, providing seamless and unforgettable adventures across the globe.

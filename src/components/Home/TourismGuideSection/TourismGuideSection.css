@@ -10,6 +10,7 @@
 } */
 
 .video-tab {
-  background-image: url('../../../assets/banner/tourism.jpg');
+  background-image: linear-gradient(oklch(var(--b1) / 0.4), oklch(var(--b1) / 0.4)), url('../../../assets/banner/tourism.jpg');
   background-size: cover;
+  background-position: center;
 }

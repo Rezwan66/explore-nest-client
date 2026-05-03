@@ -28,8 +28,9 @@ const PackageDetails = () => {
   const { _id, photo, tourType, tripTitle, price, gallery, about, tourPlan } =
     loadedPackage || {};
 
-  // Track viewing history for personalized recommendations
+  // Track viewing history for personalized recommendations and scroll to top
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (tourType) {
       const storedCategories = localStorage.getItem('viewedCategories');
       let preferredCategories = storedCategories ? JSON.parse(storedCategories) : [];

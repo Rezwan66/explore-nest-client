@@ -4,30 +4,32 @@ import bgImg from '../../assets/banner/banner4.jpg';
 const SharedBanner = () => {
   return (
     <div
-      className="hero md:h-[400px] h-80 w-full bg-fixed"
+      className="hero md:h-[450px] h-80 w-full bg-fixed"
       style={{
         backgroundImage: `url('${bgImg}')`,
         backgroundSize: 'cover',
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-center text-neutral-content">
+      <div className="hero-overlay bg-opacity-20"></div>
+      <div className="hero-content text-center text-neutral-content my-auto">
         <div className="max-w-md">
-          <h1 className="mb-5 text-info text-5xl font-bold md:tracking-widest">
-            ExploreNest
+          <h1 className="mb-5 text-white text-5xl font-bold md:tracking-widest drop-shadow-lg">
+            Explore<span className="text-primary">Nest</span>
           </h1>
           {/* <p className="mb-5 text-white">Search packages by tour type</p> */}
-          <span className="font-medium text-white">
+          <span className="font-medium text-white/90 text-lg md:text-xl drop-shadow-md">
             Your Gateway{' '}
-            <Typewriter
-              words={['to Limitless Adventures!']}
-              loop={0}
-              cursor
-              cursorStyle="_"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            ></Typewriter>
+            <span className="text-secondary font-bold">
+              <Typewriter
+                words={['to Limitless Adventures!']}
+                loop={0}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              ></Typewriter>
+            </span>
           </span>
           {/* <div className="join">
             <input

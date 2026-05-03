@@ -17,12 +17,12 @@ const AllStories = () => {
 
       <div className="my-14">
         <Container>
-          <h2 className="md:text-4xl text-2xl font-semibold  text-error text-center">
+          <h2 className="md:text-4xl text-2xl font-semibold text-primary text-center">
             {' '}
             Tourist Stories{' '}
           </h2>
-          <p className="mb-10 text-center italic text-sm mt-4 text-slate-600">
-            Click to discover
+          <p className="mb-10 text-center italic text-sm mt-4 text-slate-500">
+            Click to discover our tourists' travel experiences
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
             {stories?.map(story => (
