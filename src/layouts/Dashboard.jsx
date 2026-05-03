@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import logo from '../assets/logo/png/footerLogo.png';
+import ThemeToggle from '../components/Navbar/ThemeToggle';
 import {
   FaBook,
   FaCalendarAlt,
@@ -15,12 +15,22 @@ import {
 import { MdAddCircleOutline } from 'react-icons/md';
 import useAdmin from '../hooks/useAdmin';
 import useGuide from '../hooks/useGuide';
+import useAuth from '../hooks/useAuth';
 
 const Dashboard = () => {
   // todo: get is admin value from db
   const { isAdmin } = useAdmin();
   const { isGuide } = useGuide();
   // console.log(isAdmin, isGuide);
+   const { user, logoutUser } = useAuth();
+
+   const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast.success('Logged out successfully!');
+      })
+      .catch(error => toast.error(error.message));
+  };
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -44,16 +54,20 @@ const Dashboard = () => {
           ></label>
           <ul className="menu text-lg p-4 w-80 min-h-screen bg-base-100 text-base-content shadow-xl border-r border-base-300">
             {/* logo+website name */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <Link to="/dashboard">
-                <img src={logo} className="w-24" alt="" />
-              </Link>
-              <div className="md:text-lg text-xs font-black uppercase">
-                <p>dashboard</p>
-                <p className="md:text-xs md:tracking-widest">
-                  <span>
-                    {(isAdmin && 'Admin') || (isGuide && 'Guide') || 'Tourist'}
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <div className="flex justify-between w-full items-center px-2">
+                <Link to="/" className="flex items-center gap-2 group">
+                  <img src="/icons8-nest-96.png" className="w-10 h-10 group-hover:scale-110 transition-transform" alt="Nest Icon" />
+                  <span className="text-xl font-black tracking-tight text-base-content">
+                    Explore<span className="text-primary">Nest</span>
                   </span>
+                </Link>
+                <ThemeToggle />
+              </div>
+              <div className="bg-base-200 py-2 px-4 rounded-xl w-full text-center border border-base-300 shadow-sm mt-2">
+                <p className="text-xs tracking-widest font-bold text-base-content/60 uppercase mb-1">Dashboard</p>
+                <p className="text-sm font-black text-primary uppercase tracking-widest">
+                  {(isAdmin && 'Admin') || (isGuide && 'Guide') || 'Tourist'}
                 </p>
               </div>
             </div>
@@ -85,9 +99,9 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/manageBookings">
+                  <NavLink to="/dashboard/viewBookings">
                     <FaList />
-                    Manage Bookings
+                    View Bookings
                   </NavLink>
                 </li>
               </>
@@ -95,6 +109,12 @@ const Dashboard = () => {
             {/* guide content */}
             {isGuide && (
               <>
+                <li>
+                  <NavLink to="/dashboard" end>
+                    <FaHouseUser />
+                    Guide Dashboard
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink to="/dashboard/guideProfile">
                     <FaUserAlt />
@@ -112,6 +132,12 @@ const Dashboard = () => {
             {/* only user links */}
             {!isAdmin && !isGuide && (
               <>
+                <li>
+                  <NavLink to="/dashboard" end>
+                    <FaHouseUser />
+                    Tourist Dashboard
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink to="/dashboard/userProfile">
                     <FaUserAlt />
@@ -154,6 +180,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
+
+            <div
+              onClick={handleLogout}
+              className="px-4 py-3 hover:bg-rose-700 hover:text-white transition font-semibold absolute bottom-2 left-2 right-2 border-base-300 text-center bg-rose-500 text-white cursor-pointer rounded-lg"
+            >
+              Logout
+            </div>
           </ul>
         </div>
       </div>

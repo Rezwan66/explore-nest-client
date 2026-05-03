@@ -88,7 +88,9 @@ const DashboardHome = () => {
             </div>
           </div>
         </div>
+      <p className="text-xl font-bold text-secondary text-center mt-16 bg-base-100 p-6 rounded-2xl shadow-sm border-2 border-secondary border-dashed">** Dynamic Role Based Stats Dashboard ** Coming Soon!**</p>
       </DashboardContainer>
+
     </div>
   );
 };
