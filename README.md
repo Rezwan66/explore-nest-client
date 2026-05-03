@@ -39,6 +39,12 @@ npm run dev
 
 - Implemented the functionality to send Email to the Admin in the contact us page using Email.js.
 - Fixed responsive issue of the footer on very small devices.
+- User-based smart package recommendations.
+- Smart searching, filtering, and sorting features for exploring packages.
+- New beautiful modern theme with travel color palette for the entire website.
+- More new routes for users such as Blogs, Contact, etc.
+- Theme toggle implementation & brand new updated logo.
+- Demo credentials for Admin, Guide or Tourist.
 
 ### Features & Functionalities
 
